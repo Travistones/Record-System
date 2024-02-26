@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Content.Employees.Page.EmployeesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Employees.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:system="using:System"
+    xmlns:data="using:Record_System.BackEnd.Data"
+    xmlns:doubleToCurrence="using:Record_System.BackEnd.Converters.DoubleToCurrency"
+    xmlns:boolToVisibility="using:Record_System.BackEnd.Converters.BoolToVisibility"
+    xmlns:dateTimeToDisplayDateTime="using:Record_System.BackEnd.Converters.DateTimeToDisplayDateTime"
+    Background="{StaticResource TransparentColor}">
+
+    <Page.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/TextBoxes/SearchTextBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/TextBoxes/FormsTextBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/NumberBoxes/FormsNumberBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/NumberBoxes/ReadOnlyFormsNumberBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/AutoSuggestBoxes/FormsAutoSuggestBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/CalendarDatePicker/ApplicationCalendarDatePicker.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/FlipViews/AddNewEmployeeFormFlipView.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/GridViewItem/EmployeesGridViewItemTheme.xaml"
+                />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <doubleToCurrence:DoubleToCurrencyConverter
+                x:Key="DoubleToCurrencyConverter"
+            />
+
+            <dateTimeToDisplayDateTime:DateTimeToDisplayDateTimeConverter
+                x:Key="DateTimeToDisplayDateTimeConverter"
+            />
+
+            <boolToVisibility:BoolToVisibilityConverter
+                x:Key="BoolToVisibilityConverter"
+            />
+
+            <boolToVisibility:NegatedBoolToVisibilityConverter
+                x:Key="NegatedBoolToVisibilityConverter"
+            />
+
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <SplitView
+        x:Name="bottomPaneSplitView">
+
+        <SplitView.Resources>
+
+            <ResourceDictionary
+                Source="ms-appx:///Resources/Controls/SplitViews/BottomPaneSplitView.xaml"
+            />
+
+        </SplitView.Resources>
+
+        <SplitView.Pane>
+
+            <Grid
+                VerticalAlignment="Center"
+                Margin="0 32">
+
+                <Grid.Resources>
+
+                    <ResourceDictionary>
+
+                        <ResourceDictionary.MergedDictionaries>
+
+                        </ResourceDictionary.MergedDictionaries>
+
+                        <Style
+                            TargetType="TextBox"
+                            BasedOn="{StaticResource FormsTextBoxStyle}"
+                        />
+
+                        <Style
+                            TargetType="AutoSuggestBox"
+                            BasedOn="{StaticResource FormsAutoSuggestBoxStyle}"
+                        />
+
+                        <Style
+                            TargetType="NumberBox"
+                            BasedOn="{StaticResource FormsNumberBoxStyle}"
+                        />
+
+                    </ResourceDictionary>
+
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="*"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <ScrollViewer
+                    Style="{StaticResource AddDataFormScrollViewerStyle}"
+                    Grid.RowSpan="3">
+
+                    <Grid>
+
+                        <StackPanel
+                            Style="{StaticResource FormStackPanelStyle}">
+
+                            <Grid
+                                HorizontalAlignment="Center">
+
+                                <Grid
+                                    CornerRadius="60"
+                                    Width="140"
+                                    Height="140"
+                                    HorizontalAlignment="Center"
+                                    Background="{StaticResource BlackColor10}">
+
+                                    <FontIcon
+                                        Glyph="&#xEB06;"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource SystemFluentIcons}"
+                                        FontSize="118"
+                                        Foreground="{StaticResource BlackColor}"
+                                    />
+
+                                    <Image
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Stretch="UniformToFill"
+                                        Source="{x:Bind viewModel.NewEmployee.ProfilePictureDownloadUrl, Mode=OneWay}"
+                                    />
+
+                                </Grid>
+
+                                <Button
+                                    Width="40"
+                                    Height="40"
+                                    Padding="7"
+                                    CornerRadius="16"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Click="ChangeProfilePicture_Click">
+
+                                    <Button.Resources>
+
+                                        <ResourceDictionary
+                                            Source="ms-appx:///Resources/Controls/Buttons/ChangePictureButtonTheme.xaml"
+                                        />
+
+                                    </Button.Resources>
+
+                                    <Button.Content>
+
+                                        <FontIcon
+                                            Glyph="&#xE6E4;"
+                                            FontSize="22"
+                                        />
+
+                                    </Button.Content>
+
+                                </Button>
+
+                            </Grid>
+
+                            <TextBox
+                                Header="Full Name"
+                                Text="{x:Bind viewModel.NewEmployee.FullName, Mode=TwoWay}"
+                            />
+
+                            <NumberBox
+                                GettingFocus="NumberInput_GettingFocus"
+                                LostFocus="NumberInput_LostFocus"
+                                Value="{x:Bind viewModel.NewEmployee.SalaryPerMonth, Mode=TwoWay}"
+                                Header="Salary Per Month"
+                            />
+
+                            <CalendarDatePicker
+                                Style="{StaticResource ApplicationCalendarDatePicker}"
+                                Header="Date Joined"
+                                FontSize="14"
+                                FontFamily="{StaticResource DMMonoMedium}"
+                                PlaceholderText=""
+                                MaxDate="{x:Bind system:DateTimeOffset.Now}"
+                                DateFormat="{}{month.full} {day.integer}, {year.full}"
+                                Date="{x:Bind viewModel.NewEmployee.DateJoined, Mode=TwoWay}"
+                            />
+
+                            <Grid
+                                Grid.Row="1"
+                                ColumnSpacing="40">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox
+                                    Header="E-mail"
+                                    Text="{x:Bind viewModel.NewEmployee.Email, Mode=TwoWay}"
+                                />
+
+
+                                <TextBox
+                                    Grid.Column="1"
+                                    Header="Phone Number"
+                                    Text="{x:Bind viewModel.NewEmployee.PhoneNumber, Mode=TwoWay}"
+                                />
+
+                            </Grid>
+
+                            <TextBox
+                                Header="Location"
+                                Text="{x:Bind viewModel.NewEmployee.Location, Mode=TwoWay}"
+                            />
+
+                            <CalendarDatePicker
+                                Style="{StaticResource ApplicationCalendarDatePicker}"
+                                Header="Birth Date"
+                                FontSize="14"
+                                FontFamily="{StaticResource DMMonoMedium}"
+                                PlaceholderText=""
+                                MaxDate="{x:Bind system:DateTimeOffset.Now}"
+                                DateFormat="{}{month.full} {day.integer}, {year.full}"
+                                Date="{x:Bind viewModel.NewEmployee.BirthDate, Mode=TwoWay}"
+                            />
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </ScrollViewer>
+
+                <Border
+                    VerticalAlignment="Top"
+                    Style="{StaticResource AddDataFormTopBoderStyle}">
+
+                    <Grid
+                        Style="{StaticResource AddDataFormTopGridStyle}">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="*"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Visibility="{x:Bind viewModel.IsEdit, Converter={StaticResource NegatedBoolToVisibilityConverter}, Mode=OneWay}"
+                            Style="{StaticResource AddDataFormTitleStackPanelStyle}">
+
+                            <FontIcon
+                                Glyph="&#xE00A;"
+                                Style="{StaticResource AddDataFormTitleFontIconStyle}"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource AddDataFormTitleTextBlockStyle}"
+                                Text="New Employee"
+                            />
+
+                        </StackPanel>
+
+                        <TextBlock
+                            Visibility="{x:Bind viewModel.IsEdit, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                            Style="{StaticResource AddDataFormTitleTextBlockStyle}"
+                            Text="Edit Employee"
+                        />
+
+                        <Button
+                            Grid.Column="1"
+                            Click="Close_BottomPane"
+                            VerticalAlignment="Center">
+
+                            <Button.Resources>
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/Buttons/ClosePaneButtonTheme.xaml"
+                                />
+
+                            </Button.Resources>
+
+                            <Button.Content>
+
+                                <FontIcon
+                                    Glyph="&#xE59F;"
+                                    FontSize="16"
+                                    FontFamily="{StaticResource SystemFluentIcons}"
+                                />
+
+                            </Button.Content>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    VerticalAlignment="Bottom"
+                    Style="{StaticResource AddDataFormBottomBoderStyle}">
+
+                    <Grid
+                        Style="{StaticResource AddDataFormBottomGridStyle}">
+
+                        <Button
+                            Grid.Column="1"
+                            Style="{StaticResource AddDataFormDoneButtonStyle}"
+                            Click="Add_NewEmployee"
+                            IsEnabled="{x:Bind viewModel.NewEmployee.CanAdd, Mode=OneWay}"
+                            Content="Done">
+
+                            <Button.Resources>
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/Buttons/BlackBackgroundTextIconButtonTheme.xaml"
+                                />
+
+                            </Button.Resources>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </SplitView.Pane>
+
+        <SplitView.Content>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="*"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Style="{StaticResource DataPageHeaderGridStyle}">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Style="{StaticResource DataPageHeaderTextBlockStyle}"
+                        Text="Employees"
+                    />
+
+                    <TextBlock
+                        Text="{x:Bind viewModel.EmployeesViewModel.TotalSalary, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                        Grid.Row="1"
+                        Style="{StaticResource DataPageTotalAmountTextBlockStyle}"
+                    />
+
+                    <Grid
+                        Grid.Row="2"
+                        Margin="50 0 90 0">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="5*"
+                                MinWidth="200"
+                                MaxWidth="400"
+                            />
+
+                            <ColumnDefinition
+                                Width="*"
+                                
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            PlaceholderText="Search Employee"
+                            Style="{StaticResource SearchTextBoxStyle}"
+                        />
+
+                        <StackPanel
+                            Style="{StaticResource DataPageActionButtonsStackPanelStyle}"
+                            Grid.Column="2">
+
+                            <Button
+                                IsEnabled="{x:Bind viewModel.CanDeleteEmployees, Mode=OneWay}"
+                                Click="Delete_SelectedEmployees"
+                                Padding="14 10">
+
+                                <Button.Resources>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/ClearFormButtonTheme.xaml"
+                                    />
+
+                                </Button.Resources>
+
+                                <Button.Content>
+
+                                    <FontIcon
+                                        Glyph="&#xE555;"
+                                        FontSize="14"
+                                        FontFamily="{StaticResource SystemFluentIcons}"
+                                    />
+
+                                </Button.Content>
+
+                            </Button>
+
+                            <Button
+                                Click="Open_BottomPane"
+                                Padding="14 10">
+
+                                <Button.Resources>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/BlackBackgroundTextIconButtonTheme.xaml"
+                                    />
+
+                                </Button.Resources>
+
+                                <StackPanel
+                                    Spacing="7"
+                                    Orientation="Horizontal">
+
+                                    <FontIcon
+                                        Glyph="&#xE007;"
+                                        Style="{StaticResource DataPageAddDataButtonFontIconStyle}"
+                                    />
+
+                                    <TextBlock
+                                        Text="New Employee"
+                                        Style="{StaticResource DataPageAddDataButtonTextBlockStyle}"
+                                    />
+
+                                </StackPanel>
+
+                            </Button>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+
+                <Border
+                    Grid.Row="1"
+                    Height="47"
+                    HorizontalAlignment="Stretch"
+                    Background="{StaticResource BlackColor40}">
+
+                    <Grid
+                        Padding="76 0 90 0"
+                        ColumnSpacing="14">
+
+                        <Grid.Resources>
+
+                            <ResourceDictionary>
+
+                                <ResourceDictionary.MergedDictionaries>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/WhiteForegroundTextButton.xaml"
+                                    />
+
+                                </ResourceDictionary.MergedDictionaries>
+
+                                <Style
+                                    TargetType="Button"
+                                    BasedOn="{StaticResource DefaultButtonStyle}">
+
+                                    <Setter
+                                        Property="FontFamily"
+                                        Value="{StaticResource DMMonoMedium}"
+                                    />
+
+                                    <Setter
+                                        Property="VerticalAlignment"
+                                        Value="Stretch"
+                                    />
+
+                                    <Setter
+                                        Property="Margin"
+                                        Value="0 3"
+                                    />
+
+                                    <Setter
+                                        Property="CornerRadius"
+                                        Value="4"
+                                    />
+
+                                    <Setter
+                                        Property="Padding"
+                                        Value="14 0"
+                                    />
+
+                                </Style>
+
+                            </ResourceDictionary>
+
+                        </Grid.Resources>
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            Click="Pay_Click"
+                            Grid.Column="1"
+                            IsEnabled="{x:Bind viewModel.CanDeleteEmployees, Mode=OneWay}"
+                            Content="Pay"
+                        />
+
+                        <Button
+                            Click="PayAll_Click"
+                            Content="Pay All"
+                        />
+
+                        <Border
+                            Width="1"
+                            Grid.Column="2"
+                            Background="{StaticResource WhiteColor40}"
+                            Margin="0 14"
+                        />
+
+                        <Button
+                            Grid.Column="3"
+                            Click="EditEmployee_Click"
+                            IsEnabled="{x:Bind viewModel.CanDeleteEmployees, Mode=OneWay}"
+                            Content="Edit"
+                        />
+
+                    </Grid>
+
+                </Border>
+
+                <SplitView
+                    Grid.Row="2"
+                    PaneOpening="EmployeesSplitView_PaneOpening"
+                    PaneClosing="EmployeesSplitView_PaneClosing"
+                    x:Name="EmployeesSplitView"
+                    DisplayMode="Inline"
+                    PanePlacement="Right"
+                    OpenPaneLength="400"
+                    PaneBackground="{StaticResource WhiteColor}"
+                    Style="{StaticResource DefaultSplitViewStyle}">
+
+                    <SplitView.Pane>
+
+                        <ScrollViewer
+                            BorderThickness="1 0 0 0"
+                            BorderBrush="{StaticResource BlackColor30}">
+
+                            <Grid
+                                Padding="28">
+
+                                <Grid.RowDefinitions>
+                                
+                                    <RowDefinition
+                                        Height="Auto"
+                                    />
+
+                                    <RowDefinition
+                                        Height="Auto"
+                                    />
+
+                                    <RowDefinition
+                                        Height="*"
+                                    />
+
+                                </Grid.RowDefinitions>
+
+                                <Button
+                                    HorizontalAlignment="Right"
+                                    Click="CloseEmployeePane_BottomPane"
+                                    VerticalAlignment="Center">
+
+                                    <Button.Resources>
+
+                                        <ResourceDictionary
+                                            Source="ms-appx:///Resources/Controls/Buttons/ClosePaneButtonTheme.xaml"
+                                        />
+
+                                    </Button.Resources>
+
+                                    <Button.Content>
+
+                                        <FontIcon
+                                            Glyph="&#xE59F;"
+                                            FontSize="16"
+                                            FontFamily="{StaticResource SystemFluentIcons}"
+                                        />
+
+                                    </Button.Content>
+
+                                </Button>
+
+                                <Grid
+                                    RowSpacing="14"
+                                    Grid.Row="1">
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+
+                                    </Grid.RowDefinitions>
+
+                                    <Grid
+                                        CornerRadius="60"
+                                        Width="140"
+                                        Height="140"
+                                        HorizontalAlignment="Center"
+                                        Background="{StaticResource BlackColor10}">
+
+                                        <FontIcon
+                                            Glyph="&#xEB06;"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="{StaticResource SystemFluentIcons}"
+                                            FontSize="118"
+                                            Foreground="{StaticResource BlackColor}"
+                                        />
+
+                                        <Image
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Stretch="UniformToFill"
+                                            Source="{x:Bind viewModel.SelectedEmployee.ProfilePictureDownloadUrl, Mode=OneWay}"
+                                        />
+
+                                    </Grid>
+
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="{x:Bind viewModel.SelectedEmployee.FullName, Mode=OneWay}"
+                                        FontSize="18"
+                                        FontFamily="{StaticResource DMMonoMedium}"
+                                        Foreground="{StaticResource BlackColor}"
+                                        HorizontalAlignment="Center"
+                                        TextTrimming="CharacterEllipsis"
+                                        MaxLines="2"
+                                        TextWrapping="Wrap"
+                                    />
+
+                                </Grid>
+
+                                <Grid
+                                    ColumnSpacing="14"
+                                    RowSpacing="10"
+                                    Margin="0 21 0 0"
+                                    Grid.Row="2">
+
+                                    <Grid.Resources>
+
+                                        <Style
+                                            TargetType="FontIcon">
+
+                                            <Setter
+                                                Property="FontFamily"
+                                                Value="{StaticResource SystemFluentIcons}"
+                                            />
+
+                                            <Setter
+                                                Property="FontSize"
+                                                Value="18"
+                                            />
+
+                                            <Setter
+                                                Property="VerticalAlignment"
+                                                Value="Center"
+                                            />
+                                        
+                                            <Setter
+                                                Property="Foreground"
+                                                Value="{StaticResource BlackColor60}"
+                                            />
+                                        
+                                        </Style>
+
+                                        <Style
+                                            TargetType="TextBlock">
+
+                                            <Setter
+                                                Property="FontFamily"
+                                                Value="{StaticResource DMMonoRegular}"
+                                            />
+
+                                            <Setter
+                                                Property="VerticalAlignment"
+                                                Value="Center"
+                                            />
+
+                                            <Setter
+                                                Property="HorizontalAlignment"
+                                                Value="Left"
+                                            />
+
+                                            <Setter
+                                                Property="TextTrimming"
+                                                Value="CharacterEllipsis"
+                                            />
+
+                                            <Setter
+                                                Property="Foreground"
+                                                Value="{StaticResource BlackColor}"
+                                            />
+
+                                            <Setter
+                                                Property="Grid.Column"
+                                                Value="1"
+                                            />
+
+                                            <Setter
+                                                Property="TextLineBounds"
+                                                Value="Tight"
+                                            />
+
+                                            <Setter
+                                                Property="Margin"
+                                                Value="0 0 0 4"
+                                            />
+
+                                        </Style>
+                                    
+                                    </Grid.Resources>
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+                                    
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+                                    
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+                                    
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+                                    
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+                                        
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition
+                                            Width="Auto"
+                                        />
+
+                                        <ColumnDefinition
+                                            Width="*"
+                                        />
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <FontIcon
+                                        Glyph="&#xE96B;"
+                                    />
+
+                                    <TextBlock
+                                        Text="{x:Bind viewModel.SelectedEmployee.Email, Mode=OneWay}"
+                                    />
+
+                                    <FontIcon
+                                        Grid.Row="1"
+                                        Glyph="&#xE303;"
+                                    />
+
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="{x:Bind viewModel.SelectedEmployee.PhoneNumber, Mode=OneWay}"
+                                    />
+
+                                    <FontIcon
+                                        Grid.Row="2"
+                                        Glyph="&#xE945;"
+                                    />
+                                    
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        Text="{x:Bind viewModel.SelectedEmployee.Location, Mode=OneWay}"
+                                    />
+
+                                    <FontIcon
+                                        Grid.Row="3"
+                                        Glyph="&#xE7B1;"
+                                    />
+                                    
+                                    <TextBlock
+                                        Text="{x:Bind viewModel.SelectedEmployee.BirthDate, Converter={StaticResource DateTimeToDisplayDateTimeConverter}, Mode=OneWay}"
+                                        Grid.Row="3"
+                                    />
+
+                                    <FontIcon
+                                        Grid.Row="4"
+                                        Glyph="&#xE2D7;"
+                                    />
+                                    
+                                    <TextBlock
+                                        Text="{x:Bind viewModel.SelectedEmployee.DateJoined, Converter={StaticResource DateTimeToDisplayDateTimeConverter}, Mode=OneWay}"
+                                        Grid.Row="4"
+                                    />
+
+                                    <FontIcon
+                                        Grid.Row="5"
+                                        Glyph="&#xEACA;"
+                                    />
+
+                                    <TextBlock
+                                        Grid.Row="5"
+                                        Text="{x:Bind viewModel.SelectedEmployee.SalaryPerMonth, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                                    />
+
+                                </Grid>
+                                
+                                <!--<Grid
+                                    Visibility="{x:Bind viewModel.SelectedEmployee.IsUser, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                    CornerRadius="8"
+                                    Background="{StaticResource BlackColor5}"
+                                    Margin="-20 28 -20  0"
+                                    Padding="0 20"
+                                    Grid.ColumnSpan="2"
+                                    Grid.Row="3">
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+
+                                        <RowDefinition
+                                            Height="Auto"
+                                        />
+
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        Foreground="{StaticResource BlackColor70}"
+                                        FontFamily="{StaticResource DMMonoMedium}"
+                                        FontSize="16"
+                                        Text="Permissions"
+                                        Margin="20 0"
+                                    />
+
+                                    <Border
+                                        Grid.Row="1"
+                                        Height="1"
+                                        Margin="0 7 0 0"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource WhiteColor}"
+                                    />
+
+                                    <StackPanel
+                                        Grid.Row="2"
+                                        Margin="20 0"
+                                        Orientation="Vertical">
+
+                                        <StackPanel.Resources>
+
+                                            <Style
+                                                TargetType="TextBlock">
+
+                                                <Setter
+                                                    Property="FontFamily"
+                                                    Value="{StaticResource DMMonoRegular}"
+                                                />
+
+                                                <Setter
+                                                    Property="FontSize"
+                                                    Value="14"
+                                                />
+
+                                                <Setter
+                                                    Property="Foreground"
+                                                    Value="{StaticResource BlackColor70}"
+                                                />
+
+                                                <Setter
+                                                    Property="Margin"
+                                                    Value="0 7 0 0"
+                                                />
+
+                                            </Style>
+                                            
+                                        </StackPanel.Resources>
+
+                                        <TextBlock
+                                            Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.CanModifyPrices, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                            Text="Price Modification"
+                                        />
+
+                                        <TextBlock
+                                            Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.CanModifyEmployees, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                            Text="Add, Delete &amp; Modify Employees"
+                                        />
+
+                                        <TextBlock
+                                            Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.CanModifyCompany, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                            Text="Modify Company Logo &amp; Name"
+                                        />
+                                        
+                                    </StackPanel>
+
+                                </Grid>-->
+
+                                <!--<Grid
+                                    Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.CanModifyEmployees, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                    Margin="0 28 0 0"
+                                    Grid.Row="4">
+
+                                    <Grid.Resources>
+
+                                        <ResourceDictionary>
+
+                                            <ResourceDictionary.MergedDictionaries>
+
+                                                <ResourceDictionary
+                                                    Source="ms-appx:///Resources/Controls/Buttons/ClearFormButtonTheme.xaml"
+                                                />
+
+                                            </ResourceDictionary.MergedDictionaries>
+
+                                            <Style
+                                                TargetType="Button"
+                                                BasedOn="{StaticResource DefaultButtonStyle}">
+
+                                                <Setter
+                                                    Property="FontFamily"
+                                                    Value="{StaticResource DMMonoRegular}"
+                                                />
+                                                
+                                            </Style>
+                                            
+                                        </ResourceDictionary>
+                                        
+                                    </Grid.Resources>
+                                    
+                                    <Button
+                                        VerticalAlignment="Top"
+                                        Visibility="{x:Bind viewModel.SelectedEmployee.IsUser, Converter={StaticResource NegatedBoolToVisibilityConverter},Mode=OneWay}"
+                                        Click="GrantSystemPermission_Click"
+                                        Content="Grant System Permissions"
+                                    />
+
+                                    <StackPanel
+                                        Visibility="{x:Bind viewModel.SelectedEmployee.IsUser, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                        Spacing="7"
+                                        Orientation="Vertical">
+
+                                        <Button
+                                            Click="ChangeUserPermissions_Click"
+                                            Content="Change Permissions"
+                                        />
+
+                                        <Button
+                                            Click="RemoveUserFromTheSystem_Click"
+                                            Content="Remove User From The Sysetem"
+                                        />
+
+                                        <Button
+                                            Click="ResetPasswordUserName_Click"
+                                            Content="Reset Password &amp; Username"
+                                        />
+
+                                    </StackPanel>
+
+                                </Grid>-->
+                            
+                            </Grid>
+
+                        </ScrollViewer>
+
+                    </SplitView.Pane>
+
+                    <SplitView.Content>
+
+                        <GridView
+                            Padding="90 21 90 14"
+                            SelectionMode="Single"
+                            IsMultiSelectCheckBoxEnabled="False"
+                            SelectionChanged="EmployeesGridView_SelectionChanged"
+                            ItemsSource="{x:Bind viewModel.EmployeesViewModel.Employees, Mode=OneWay}"
+                            x:Name="EmployeesGridView">
+
+                            <GridView.ItemTemplate>
+
+                                <DataTemplate
+                                    x:DataType="data:Employee">
+
+                                    <Grid
+                                        MinWidth="200"
+                                        RowSpacing="7"
+                                        Margin="14">
+
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition
+                                                Height="Auto"
+                                            />
+
+                                            <RowDefinition
+                                                Height="Auto"
+                                            />
+
+                                            <RowDefinition
+                                                Height="Auto"
+                                            />
+
+                                        </Grid.RowDefinitions>
+
+                                        <Grid
+                                            CornerRadius="70"
+                                            Width="140"
+                                            Height="140"
+                                            HorizontalAlignment="Center">
+
+                                            <FontIcon
+                                                Glyph="&#xEB06;"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource SystemFluentIcons}"
+                                                FontSize="118"
+                                                Foreground="{StaticResource BlackColor}"
+                                                Visibility="{x:Bind HasNoProfilePicture, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                            />
+
+                                            <Image
+                                                CacheMode="BitmapCache"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                Stretch="UniformToFill"
+                                                Source="{x:Bind ProfilePictureDownloadUrl, Mode=OneWay}"
+                                                Visibility="{x:Bind HasProfilePicture, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                            />
+
+                                        </Grid>
+
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            FontSize="14"
+                                            FontFamily="{StaticResource DMMonoRegular}"
+                                            Text="{x:Bind FullName, Mode=OneWay}"
+                                            HorizontalAlignment="Center"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="Wrap"
+                                            MaxLines="2"
+                                        />
+
+                                        <TextBlock
+                                            Grid.Row="2"
+                                            Text="{x:Bind SalaryPerMonth, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                                            FontFamily="{StaticResource AudioWide}"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            TextTrimming="CharacterEllipsis"
+                                        />
+
+                                    </Grid>
+
+                                </DataTemplate>
+
+                            </GridView.ItemTemplate>
+
+                            <GridView.ItemContainerStyle>
+
+                                <Style
+                                    TargetType="GridViewItem"
+                                    BasedOn="{StaticResource DefaultGridViewItemStyle}">
+
+                                    <Setter
+                                        Property="HorizontalAlignment"
+                                        Value="Center"
+                                    />
+
+                                    <Setter
+                                        Property="Margin"
+                                        Value="0 0 14 14"
+                                    />
+
+                                    <Setter
+                                        Property="HorizontalContentAlignment"
+                                        Value="Center"
+                                    />
+
+                                    <Setter
+                                        Property="Template">
+
+                                        <Setter.Value>
+
+                                            <ControlTemplate
+                                                TargetType="GridViewItem">
+
+                                                <ListViewItemPresenter
+                                                    DoubleTapped="Employee_DoubleTapped"
+                                                    HorizontalContentAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    SelectionCheckMarkVisualEnabled="False"
+                                                    Background="{StaticResource BlackColor5}"
+                                                    PointerOverBackground="{StaticResource BlackColor10}"
+                                                    PressedBackground="{StaticResource BlackColor20}"
+                                                    SelectedBackground="{StaticResource BlackColor20}"
+                                                    SelectedPointerOverBackground="{StaticResource BlackColor20}"
+                                                    SelectedPressedBackground="{StaticResource BlackColor10}"
+                                                    Foreground="{StaticResource BlackColor70}"
+                                                    PointerOverForeground="{StaticResource BlackColor70}"
+                                                    SelectedForeground="{StaticResource BlackColor70}"
+                                                    BorderThickness="0"
+                                                    CornerRadius="4"
+                                                />
+
+                                            </ControlTemplate>
+
+                                        </Setter.Value>
+
+                                    </Setter>
+
+                                </Style>
+
+                            </GridView.ItemContainerStyle>
+
+                        </GridView>
+
+                    </SplitView.Content>
+                
+                </SplitView>
+
+            </Grid>
+
+        </SplitView.Content>
+
+    </SplitView>
+
+</Page>
+
+    

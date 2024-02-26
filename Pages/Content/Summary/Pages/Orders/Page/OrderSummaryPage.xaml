@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Content.Summary.Pages.Orders.Page.OrderSummaryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Summary.Pages.Orders.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oxypControls="using:OxyPlot"
+    xmlns:oxypSeries="using:OxyPlot.Series"
+    xmlns:oxypAxes="using:OxyPlot.Axes"
+    xmlns:doubleToCurrency="using:Record_System.BackEnd.Converters.DoubleToCurrency"
+    xmlns:colorToOxyColor="using:Record_System.BackEnd.Converters.ColorToOxyColor"
+    mc:Ignorable="d"
+    Background="{StaticResource TransparentColor}">
+
+    <Page.Resources>
+
+        <colorToOxyColor:ColorToOxyColorConverter
+            x:Key="ColorToOxyColorConverter"
+        />
+
+        <doubleToCurrency:DoubleToCurrencyConverter
+            x:Key="DoubleToCurrencyConverter"
+        />
+
+    </Page.Resources>
+
+    <ScrollViewer>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition
+                    Height="Auto"
+                />
+
+                <RowDefinition
+                    Height="*"
+                />
+
+                <RowDefinition
+                    Height="Auto"
+                />
+
+            </Grid.RowDefinitions>
+
+
+            <Grid
+                RowSpacing="7"
+                ColumnSpacing="44"
+                Margin="90 0 90 14">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+
+                    <ColumnDefinition
+                        Width="*"
+                    />
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Text="Orders"
+                    Style="{StaticResource SummaryTitleTextBlockStyle}"
+                />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalNumberOfOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Style="{StaticResource SummaryTitleTotalTextBlockStyle}"
+                />
+
+                <Grid
+                    ColumnSpacing="7"
+                    Grid.Column="1"
+                    ToolTipService.ToolTip="{x:Bind totalOrdersTextBlock.Text, Mode=OneWay}"
+                    Grid.Row="1"
+                    HorizontalAlignment="Right">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition
+                            Width="Auto"
+                        />
+
+                        <ColumnDefinition
+                            Width="*"
+                        />
+
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="m&#x00B3;"
+                        VerticalAlignment="Top"
+                        FontSize="12"
+                        Margin="0 4 0 0"
+                        FontFamily="{StaticResource DMMonoRegular}"
+                        Foreground="{StaticResource BlackColor70}"
+                    />
+
+                    <TextBlock
+                        Grid.Column="1"
+                        x:Name="totalOrdersTextBlock"
+                        Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeInCompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                        Style="{StaticResource SummaryTitleTotalTextBlockStyle}"
+                        TextTrimming="CharacterEllipsis"
+                    />
+
+                </Grid>
+
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Background="{StaticResource BlackColor1}"
+                BorderThickness="0 1"
+                BorderBrush="{StaticResource BlackColor5}"
+                Padding="0 21"
+                Margin="0 14 0 0"
+                MinHeight="448">
+
+                <oxypControls:PlotView
+                    MaxHeight="576"
+                    Background="{StaticResource TransparentColor}">
+
+                    <oxypControls:PlotView.Model>
+
+                        <oxypControls:PlotModel
+                            x:Name="OrdersGraphPlotModel">
+
+                            <oxypControls:PlotModel.Axes>
+
+                                <oxypAxes:DateTimeAxis
+                                    StringFormat="MMMM dd yyyy"
+                                    Position="Bottom"
+                                    IsZoomEnabled="False"
+                                    IsAxisVisible="False"
+                                />
+
+                                <oxypAxes:LinearAxis
+                                    Position="Left"
+                                    IsZoomEnabled="False"
+                                    IsAxisVisible="False"
+                                />
+
+                            </oxypControls:PlotModel.Axes>
+                    
+                            <oxypControls:PlotModel.Series>
+
+                                <oxypSeries:LineSeries
+                                    ItemsSource="{x:Bind viewModel.GraphsViewModel.TotalAmountInOrdersDataPoints, Mode=OneWay}"
+                                    x:Name="OrdersGraphLineSeries"
+                                />
+
+                            </oxypControls:PlotModel.Series>
+
+                        </oxypControls:PlotModel>
+
+                    </oxypControls:PlotView.Model>
+
+                </oxypControls:PlotView>
+
+            </Grid>
+
+            <Grid
+                ColumnSpacing="30"
+                RowSpacing="17"
+                Grid.Row="2"
+                Margin="90 28">
+
+                <Grid.Resources>
+
+                    <Style
+                        TargetType="TextBlock"
+                        x:Key="columnHeaderTextBlockStyle">
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource DMMonoRegular}"
+                        />
+
+                        <Setter
+                            Property="FontSize"
+                            Value="14"
+                        />
+
+                        <Setter
+                            Property="Foreground"
+                            Value="{StaticResource BlackColor40}"
+                        />
+
+                    </Style>
+
+                    <Style
+                        TargetType="TextBlock"
+                        x:Key="gradeTextBlockStyle">
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource DMMonoMedium}"
+                        />
+
+                        <Setter
+                            Property="FontSize"
+                            Value="18"
+                        />
+
+                        <Setter
+                            Property="Foreground"
+                            Value="{StaticResource BlackColor70}"
+                        />
+
+                    </Style>
+
+                    <Style
+                        TargetType="TextBlock"
+                        x:Key="valueTextBlockStyle">
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource AudioWide}"
+                        />
+
+                        <Setter
+                            Property="FontSize"
+                            Value="16"
+                        />
+
+                        <Setter
+                            Property="Foreground"
+                            Value="{StaticResource BlackColor70}"
+                        />
+
+                        <Setter
+                            Property="TextTrimming"
+                            Value="CharacterEllipsis"
+                        />
+
+                        <Setter
+                            Property="HorizontalAlignment"
+                            Value="Right"
+                        />
+
+                    </Style>
+
+                </Grid.Resources>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+
+                    <ColumnDefinition
+                        Width="*"
+                    />
+
+                    <ColumnDefinition
+                        Width="*"
+                    />
+
+                    <ColumnDefinition
+                        Width="*"
+                    />
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Type"
+                />
+
+                <TextBlock
+                    Grid.Column="1"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Total"
+                    HorizontalAlignment="Right"
+                />
+
+                <TextBlock
+                    Grid.Column="2"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Volume (m&#x00B3;)"
+                    HorizontalAlignment="Right"
+                />
+
+                <TextBlock
+                    Grid.Column="3"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Amount (Tsh)"
+                    HorizontalAlignment="Right"
+                />
+
+                <TextBlock
+                    Text="Complete"
+                    Style="{StaticResource gradeTextBlockStyle}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="Incomplete"
+                    Style="{StaticResource gradeTextBlockStyle}"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalNumberOfCompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="1"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalNumberOfIncompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="1"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="2"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeInCompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="2"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeInIncompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="2"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="2"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountInCompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="3"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountInIncompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="3"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="2"
+                />
+
+            </Grid>
+
+        </Grid>
+
+    </ScrollViewer>
+    
+</Page>

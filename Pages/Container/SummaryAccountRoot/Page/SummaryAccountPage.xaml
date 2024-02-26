@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Container.SummaryAccountRoot.Page.SummaryAccountPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Container.SummaryAccountRoot.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
+    mc:Ignorable="d"
+    xmlns:boolToVisibility="using:Record_System.BackEnd.Converters.BoolToVisibility">
+
+    <Page.Resources>
+
+        <boolToVisibility:BoolToVisibilityConverter
+            x:Key="BoolToVisibilityConverter"
+        />
+        
+    </Page.Resources>
+
+    <Grid
+        Margin="0 32 0 0"
+        RowSpacing="14">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition
+                Height="Auto"
+            />
+
+            <RowDefinition
+                Height="*"
+            />
+            
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.Resources>
+
+                <ResourceDictionary>
+
+                    <ResourceDictionary.MergedDictionaries>
+
+                        <ResourceDictionary
+                            Source="ms-appx:///Resources/Controls/Buttons/SummaryAccountNavigationButtonsTheme.xaml"
+                        />
+                        
+                    </ResourceDictionary.MergedDictionaries>
+                    
+                </ResourceDictionary>
+                
+            </Grid.Resources>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition
+                    x:Name="MarginLeft"
+                    Width="76"
+                />
+
+                <ColumnDefinition
+                    Width="Auto"
+                />
+
+                <ColumnDefinition
+                    Width="*"
+                />
+
+                <ColumnDefinition
+                    x:Name="MarginRight"
+                    Width="90"
+                />
+
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Visibility="{x:Bind summaryAccountMainFrame.CanGoBack, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                Height="37"
+                Margin="0 0 3 0"
+                Click="GoBack_Close"
+                HorizontalAlignment="Right">
+
+                <Button.Content>
+
+                    <AnimatedIcon>
+                        
+                        <AnimatedIcon.Source>
+
+                            <animatedvisuals:AnimatedBackVisualSource
+                            />
+
+                        </AnimatedIcon.Source>
+
+                        <AnimatedIcon.FallbackIconSource>
+
+                            <SymbolIconSource 
+                                Symbol="Back"
+                            />
+
+                        </AnimatedIcon.FallbackIconSource>
+
+                    </AnimatedIcon>
+
+                </Button.Content>
+                
+            </Button>
+
+            <Button
+                Click="Home_Click"
+                Grid.Column="1">
+
+                <Button.Content>
+
+                    <FontIcon
+                        Glyph="&#xE86E;"
+                        FontSize="22"
+                        FontFamily="{StaticResource SystemFluentIcons}"
+                    />
+                    
+                </Button.Content>
+                
+            </Button>
+
+            <TextBlock
+                Grid.Column="2"
+                Margin="7 0 0 0"
+                x:Name="titleTextBlock"
+                FontFamily="{StaticResource DMMonoLight}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Foreground="{StaticResource BlackColor90}"
+            />
+
+        </Grid>
+
+        <Frame
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{StaticResource TransparentColor}"
+            x:Name="summaryAccountMainFrame"
+        />
+
+    </Grid>
+    
+</Page>

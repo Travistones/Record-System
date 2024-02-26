@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Content.Summary.Pages.Trucks.Page.TrucksSummaryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Summary.Pages.Trucks.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oxypControls="using:OxyPlot"
+    xmlns:oxypSeries="using:OxyPlot.Series"
+    xmlns:oxypAxes="using:OxyPlot.Axes"
+    xmlns:doubleToCurrency="using:Record_System.BackEnd.Converters.DoubleToCurrency"
+    xmlns:colorToOxyColor="using:Record_System.BackEnd.Converters.ColorToOxyColor"
+    mc:Ignorable="d"
+    Background="{StaticResource TransparentColor}">
+
+    <Page.Resources>
+
+        <colorToOxyColor:ColorToOxyColorConverter
+            x:Key="ColorToOxyColorConverter"
+        />
+
+        <doubleToCurrency:DoubleToCurrencyConverter
+            x:Key="DoubleToCurrencyConverter"
+        />
+
+    </Page.Resources>
+
+    <ScrollViewer>
+    
+        <Grid>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition
+                    Height="Auto"
+                />
+
+                <RowDefinition
+                    Height="*"
+                />
+
+                <RowDefinition
+                    Height="Auto"
+                />
+
+            </Grid.RowDefinitions>
+
+            <Grid
+                RowSpacing="7"
+                ColumnSpacing="44"
+                Margin="90 0 90 14">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+
+                    <ColumnDefinition
+                        Width="*"
+                    />
+                    
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Text="Trucks"
+                    Style="{StaticResource SummaryTitleTextBlockStyle}"
+                />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalTrucksIn, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Style="{StaticResource SummaryTitleTotalTextBlockStyle}"
+                />
+
+                <Grid
+                    ColumnSpacing="14"
+                    Grid.Column="1"
+                    ToolTipService.ToolTip="{x:Bind trucksTotalAmountTextBlock.Text, Mode=OneWay}"
+                    Grid.Row="1"
+                    HorizontalAlignment="Right">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition
+                            Width="Auto"
+                        />
+                            
+                        <ColumnDefinition
+                            Width="*"
+                        />
+                            
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Grid.Column="1"
+                        x:Name="trucksTotalAmountTextBlock"
+                        Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountUsedInTrucks, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                        Style="{StaticResource SummaryTitleTotalTextBlockStyle}"
+                        TextTrimming="CharacterEllipsis"
+                    />
+
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Tsh"
+                        VerticalAlignment="Top"
+                        FontSize="12"
+                        Margin="0 4 0 0"
+                        FontFamily="{StaticResource DMMonoRegular}"
+                        Foreground="{StaticResource BlackColor70}"
+                    />
+
+                </Grid>
+
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Background="{StaticResource BlackColor1}"
+                BorderThickness="0 1"
+                BorderBrush="{StaticResource BlackColor5}"
+                Padding="0 21"
+                Margin="0 14 0 0"
+                MinHeight="448">
+            
+                <oxypControls:PlotView
+                    MaxHeight="576"
+                    Background="{StaticResource TransparentColor}">
+
+                    <oxypControls:PlotView.Model>
+
+                        <oxypControls:PlotModel
+                            x:Name="TrucksGraphPlotModel">
+
+                            <oxypControls:PlotModel.Axes>
+
+                                <oxypAxes:DateTimeAxis
+                                    StringFormat="MMMM dd yyyy"
+                                    Position="Bottom"
+                                    IsZoomEnabled="False"
+                                    IsAxisVisible="False"
+                                />
+
+                                <oxypAxes:LinearAxis
+                                    Position="Left"
+                                    IsZoomEnabled="False"
+                                    IsAxisVisible="False"
+                                />
+
+                            </oxypControls:PlotModel.Axes>
+                    
+                            <oxypControls:PlotModel.Series>
+
+                                <oxypSeries:LineSeries
+                                    ItemsSource="{x:Bind viewModel.GraphsViewModel.TotalAmountUsedInTrucksDataPoints, Mode=OneWay}"
+                                    x:Name="TrucksGraphLineSeries"
+                                />
+
+                            </oxypControls:PlotModel.Series>
+
+                        </oxypControls:PlotModel>
+
+                    </oxypControls:PlotView.Model>
+
+                </oxypControls:PlotView>
+
+            </Grid>
+
+        </Grid>
+
+    </ScrollViewer>
+    
+</Page>

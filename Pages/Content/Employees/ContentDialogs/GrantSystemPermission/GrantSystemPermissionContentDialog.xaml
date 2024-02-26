@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="Record_System.Pages.Content.Employees.ContentDialogs.GrantSystemPermission.GrantSystemPermissionContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Employees.ContentDialogs.GrantSystemPermission"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentDialog.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/ContentDialogs/ApplicationContentDialog.xaml"
+                />
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
+    </ContentDialog.Resources>
+
+    <ContentDialog.Style>
+
+        <Style
+            TargetType="ContentControl"
+            BasedOn="{StaticResource ApplicationContentDialogStyle}"
+        />
+
+    </ContentDialog.Style>
+
+    <Grid
+        Padding="21 14"
+        Width="400"
+        RowSpacing="21">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition
+                Height="Auto"
+            />
+
+            <RowDefinition
+                Height="*"
+            />
+
+            <RowDefinition
+                Height="Auto"
+            />
+
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition
+                    Width="*"
+                />
+
+                <ColumnDefinition
+                    Width="Auto"
+                />
+                
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                FontSize="18"
+                FontFamily="{StaticResource DMMonoMedium}"
+                TextTrimming="CharacterEllipsis"
+                Foreground="{StaticResource BlackColor80}"
+                Text="Permissions"
+            />
+
+            <Button
+                Grid.Column="1"
+                Click="Close_BottomPane"
+                VerticalAlignment="Center">
+
+                <Button.Resources>
+
+                    <ResourceDictionary
+                        Source="ms-appx:///Resources/Controls/Buttons/ClosePaneButtonTheme.xaml"
+                    />
+
+                </Button.Resources>
+
+                <Button.Content>
+
+                    <FontIcon
+                        Glyph="&#xE59F;"
+                        FontSize="16"
+                        FontFamily="{StaticResource SystemFluentIcons}"
+                    />
+
+                </Button.Content>
+
+            </Button>
+
+        </Grid>
+
+        <ScrollViewer
+            Grid.Row="1">
+            
+            <StackPanel
+                Spacing="14">
+
+                <StackPanel.Resources>
+
+                    <ResourceDictionary>
+
+                        <ResourceDictionary.MergedDictionaries>
+
+                            <ResourceDictionary
+                                Source="ms-appx:///Resources/Controls/CheckBox/PermissionCheckBoxTheme.xaml"
+                            />
+                        
+                        </ResourceDictionary.MergedDictionaries>
+
+                        <Style
+                            BasedOn="{StaticResource DefaultCheckBoxStyle}"
+                            TargetType="CheckBox">
+
+                            <Setter
+                                Property="FontFamily"
+                                Value="{StaticResource DMMonoRegular}"
+                            />
+
+                            <Setter
+                                Property="FontSize"
+                                Value="14"
+                            />
+
+                        </Style>
+
+                    </ResourceDictionary>
+
+                </StackPanel.Resources>
+
+                <CheckBox
+                    Content="Modify Price"
+                    IsChecked="{x:Bind CanModifyPrices, Mode=TwoWay}"
+                />
+
+                <CheckBox
+                    Content="Add, Delete &amp; Modify Employees"
+                    IsChecked="{x:Bind CanModifyEmployees, Mode=TwoWay}"
+                />
+
+                <CheckBox
+                    Content="Modify Company Logo &amp; Name"
+                    IsChecked="{x:Bind CanModifyCompany, Mode=TwoWay}"
+                />
+
+            </StackPanel>
+            
+        </ScrollViewer>
+
+        <Button
+            Grid.Row="2"
+            Style="{StaticResource AddDataFormDoneButtonStyle}"
+            Click="Done_Click"
+            Content="Done">
+
+            <Button.Resources>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/Buttons/BlackBackgroundTextIconButtonTheme.xaml"
+                />
+
+            </Button.Resources>
+
+        </Button>
+
+    </Grid>
+
+</ContentDialog>

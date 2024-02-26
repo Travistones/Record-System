@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="Record_System.Pages.Content.Employees.ContentDialogs.ChangePicture.ChangePictureContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Employees.ContentDialogs.ChangePicture"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentDialog.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/ContentDialogs/ApplicationContentDialog.xaml"
+                />
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
+    </ContentDialog.Resources>
+
+    <ContentDialog.Style>
+
+        <Style
+            TargetType="ContentControl"
+            BasedOn="{StaticResource ApplicationContentDialogStyle}"
+        />
+
+    </ContentDialog.Style>
+
+    <Grid
+        RowSpacing="14"
+        Width="400">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition
+                Height="Auto"
+            />
+
+            <RowDefinition
+                Height="Auto"
+            />
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition
+                Width="*"
+            />
+            
+            <ColumnDefinition
+                Width="Auto"
+            />
+            
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Foreground="{StaticResource BlackColor50}"
+            Text="Edit"
+            Margin="14 0 0 0"
+            FontFamily="{StaticResource DMMonoMedium}"
+            FontSize="18"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+        />
+
+        <Button
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            Click="CloseButton_Clicked">
+
+            <Button.Resources>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/Buttons/ClosePaneButtonTheme.xaml"
+                />
+
+            </Button.Resources>
+
+            <Button.Content>
+
+                <FontIcon
+                    FontSize="16"
+                    Glyph="&#xE59F;"
+                    FontFamily="{StaticResource SystemFluentIcons}"
+                />
+
+            </Button.Content>
+            
+        </Button>
+
+        <StackPanel
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            Orientation="Vertical">
+
+            <StackPanel.Resources>
+
+                <ResourceDictionary>
+
+                    <ResourceDictionary.MergedDictionaries>
+
+                        <ResourceDictionary
+                            Source="ms-appx:///Resources/Controls/Buttons/FakeListButton.xaml"
+                        />
+
+                    </ResourceDictionary.MergedDictionaries>
+
+                    <Style
+                        TargetType="Button"
+                        BasedOn="{StaticResource DefaultButtonStyle}">
+
+                        <Setter
+                            Property="HorizontalAlignment"
+                            Value="Stretch"
+                        />
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource DMMonoRegular}"
+                        />
+
+                        <Setter
+                            Property="Padding"
+                            Value="14 7"
+                        />
+
+                        <Setter
+                            Property="HorizontalContentAlignment"
+                            Value="Left"
+                        />
+
+                    </Style>
+
+                </ResourceDictionary>
+
+            </StackPanel.Resources>
+
+            <Button
+                Click="ChangePicture_Clicked"
+                Content="Change Picture"
+            />
+
+            <Button
+                Click="RemovePicture_Clicked"
+                Content="Remove Picture"
+            />
+
+        </StackPanel>
+
+    </Grid>
+
+</ContentDialog>

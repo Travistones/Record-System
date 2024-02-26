@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Content.Orders.Page.OrdersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Orders.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:cwuc="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:cwucprimitives="using:CommunityToolkit.WinUI.UI.Controls.Primitives"
+    xmlns:system="using:System"
+    xmlns:doubleToCurrence="using:Record_System.BackEnd.Converters.DoubleToCurrency"
+    xmlns:boolToVisibility="using:Record_System.BackEnd.Converters.BoolToVisibility"
+    xmlns:dateTimeToDisplayDateTime="using:Record_System.BackEnd.Converters.DateTimeToDisplayDateTime"
+    xmlns:dateTimeToDisplayDate="using:Record_System.BackEnd.Converters.DateTimeToDisplayDate"
+    xmlns:boolToNegatedBool="using:Record_System.BackEnd.Converters.BoolToNegatedBool"
+    xmlns:data="using:Record_System.BackEnd.Data"
+    Background="{StaticResource TransparentColor}">
+
+    <Page.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/TextBoxes/SearchTextBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/TextBoxes/FormsTextBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/NumberBoxes/FormsNumberBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/NumberBoxes/ReadOnlyFormsNumberBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/AutoSuggestBoxes/FormsAutoSuggestBox.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/CalendarDatePicker/ApplicationCalendarDatePicker.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/ComboBoxes/FormComboBox.xaml"
+                />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <boolToNegatedBool:BoolToNegatedBoolConverter
+                x:Key="BoolToNegatedBoolConverter"
+            />
+
+            <doubleToCurrence:DoubleToCurrencyConverter
+                x:Key="DoubleToCurrencyConverter"
+            />
+
+            <dateTimeToDisplayDateTime:DateTimeToDisplayDateTimeConverter
+                x:Key="DateTimeToDisplayDateTimeConverter"
+            />
+
+            <boolToVisibility:BoolToVisibilityConverter
+                x:Key="BoolToVisibilityConverter"
+            />
+
+            <boolToVisibility:NegatedBoolToVisibilityConverter
+                x:Key="NegatedBoolToVisibilityConverter"
+            />
+
+            <dateTimeToDisplayDate:DateTimeToDisplayDateConverter
+                x:Key="DateTimeToDisplayDateConverter"
+            />
+
+            <DataTemplate
+                x:Key="GradeItemTemplate"
+                x:DataType="data:Grade">
+
+                <TextBlock
+                    Text="{x:Bind Quality, Mode=OneWay}"
+                />
+
+            </DataTemplate>
+
+        </ResourceDictionary>
+        
+    </Page.Resources>
+
+    <SplitView
+        x:Name="bottomPaneSplitView">
+
+        <SplitView.Resources>
+
+            <ResourceDictionary
+                Source="ms-appx:///Resources/Controls/SplitViews/BottomPaneSplitView.xaml"
+            />
+
+        </SplitView.Resources>
+
+        <SplitView.Pane>
+
+            <Grid
+                Margin="0 32">
+
+                <Grid.Resources>
+
+                    <ResourceDictionary>
+
+                        <ResourceDictionary.MergedDictionaries>
+
+                        </ResourceDictionary.MergedDictionaries>
+
+                        <Style
+                            TargetType="TextBox"
+                            BasedOn="{StaticResource FormsTextBoxStyle}"
+                        />
+
+                        <Style
+                            TargetType="AutoSuggestBox"
+                            BasedOn="{StaticResource FormsAutoSuggestBoxStyle}"
+                        />
+
+                        <Style
+                            TargetType="NumberBox"
+                            BasedOn="{StaticResource FormsNumberBoxStyle}"
+                        />
+
+                    </ResourceDictionary>
+
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="*"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <ScrollViewer
+                    Style="{StaticResource AddDataFormScrollViewerStyle}"
+                    Grid.RowSpan="3">
+
+                    <Grid>
+
+                        <StackPanel
+                            Grid.RowSpan="3"
+                            Style="{StaticResource FormStackPanelStyle}">
+
+                            <AutoSuggestBox
+                                TextChanged="accountInput_TextChanged"
+                                SuggestionChosen="accountInput_SuggestionChosen"
+                                Header="Account"
+                                Text="{x:Bind viewModel.NewOrder.Account, Mode=TwoWay}"
+                            />
+
+                            <Grid
+                                ColumnSpacing="40">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+
+                                </Grid.ColumnDefinitions>
+
+                                <ComboBox
+                                    Header="Grade"
+                                    Style="{StaticResource FormComboBoxStyle}"
+                                    ItemsSource="{x:Bind viewModel.NewOrder.Grades, Mode=OneWay}"
+                                    SelectedItem="{x:Bind viewModel.NewOrder.Grade, Mode=TwoWay}"
+                                    HorizontalAlignment="Stretch"
+                                    ItemTemplate="{StaticResource GradeItemTemplate}"
+                                />
+
+                                <NumberBox
+                                    Grid.Column="1"
+                                    GettingFocus="NumberInput_GettingFocus"
+                                    LostFocus="NumberInput_LostFocus"
+                                    Value="{x:Bind viewModel.NewOrder.Volume, Mode=TwoWay}"
+                                    Header="Volume (m&#x00B3;)"
+                                />
+
+                            </Grid>
+
+                            <Grid
+                                Grid.Row="1"
+                                ColumnSpacing="40">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+
+                                </Grid.ColumnDefinitions>
+
+                                <NumberBox
+                                    Header="Price"
+                                    GettingFocus="NumberInput_GettingFocus"
+                                    LostFocus="NumberInput_LostFocus"
+                                    Value="{x:Bind viewModel.NewOrder.Price, Mode=TwoWay}"
+                                />
+
+                                <NumberBox
+                                    Grid.Column="1"
+                                    Header="Discount"
+                                    GettingFocus="NumberInput_GettingFocus"
+                                    LostFocus="NumberInput_LostFocus"
+                                    Value="{x:Bind viewModel.NewOrder.Discount, Mode=TwoWay}"
+                                />
+
+                            </Grid>
+
+                            <NumberBox
+                                Grid.Column="1"
+                                Header="Net Received"
+                                GettingFocus="NumberInput_GettingFocus"
+                                LostFocus="NumberInput_LostFocus"
+                                Value="{x:Bind viewModel.NewOrder.NetReceived, Mode=TwoWay}"
+                            />
+                            
+                            <CalendarDatePicker
+                                Style="{StaticResource ApplicationCalendarDatePicker}"
+                                Header="Closing Date"
+                                FontSize="14"
+                                FontFamily="{StaticResource DMMonoMedium}"
+                                PlaceholderText=""
+                                MinDate="{x:Bind system:DateTime.Now.Date, Mode=OneTime}"
+                                DateFormat="{}{month.full} {day.integer}, {year.full}"
+                                Date="{x:Bind viewModel.NewOrder.ClosingTime, Mode=TwoWay}"
+                            />
+
+                            <TextBox
+                                Header="Description"
+                                Text="{x:Bind viewModel.NewOrder.Details, Mode=TwoWay}"
+                            />
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </ScrollViewer>
+
+                <Border
+                    Style="{StaticResource AddDataFormTopBoderStyle}">
+
+                    <Grid
+                        Style="{StaticResource AddDataFormTopGridStyle}">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="*"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Style="{StaticResource AddDataFormTitleStackPanelStyle}">
+
+                            <FontIcon
+                                Glyph="&#xE00A;"
+                                Style="{StaticResource AddDataFormTitleFontIconStyle}"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource AddDataFormTitleTextBlockStyle}"
+                                Text="New Order"
+                            />
+
+                        </StackPanel>
+
+                        <Button
+                            Grid.Column="1"
+                            Click="Close_BottomPane"
+                            VerticalAlignment="Center">
+
+                            <Button.Resources>
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/Buttons/ClosePaneButtonTheme.xaml"
+                                />
+
+                            </Button.Resources>
+
+                            <Button.Content>
+
+                                <FontIcon
+                                    Glyph="&#xE59F;"
+                                    FontSize="16"
+                                    FontFamily="{StaticResource SystemFluentIcons}"
+                                />
+
+                            </Button.Content>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Style="{StaticResource AddDataFormBottomBoderStyle}">
+
+                    <Grid
+                        Style="{StaticResource AddDataFormBottomGridStyle}">
+
+                        <Button
+                            Grid.Column="1"
+                            Style="{StaticResource AddDataFormDoneButtonStyle}"
+                            Click="Add_NewOrder"
+                            IsEnabled="{x:Bind viewModel.NewOrder.CanAdd, Mode=OneWay}"
+                            Content="Done">
+
+                            <Button.Resources>
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/Buttons/BlackBackgroundTextIconButtonTheme.xaml"
+                                />
+
+                            </Button.Resources>
+
+                        </Button>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </SplitView.Pane>
+
+        <SplitView.Content>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="*"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Style="{StaticResource DataPageHeaderGridStyle}">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Style="{StaticResource DataPageHeaderTextBlockStyle}"
+                        Text="Orders"
+                    />
+
+                    <TextBlock
+                        Text="{x:Bind viewModel.OverallTime.TotalAmountInIncompleteOrders, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                        Grid.Row="1"
+                        Style="{StaticResource DataPageTotalAmountTextBlockStyle}"
+                    />
+
+                    <Grid
+                        Grid.Row="2"
+                        Margin="50 0 90 0">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="5*"
+                                MinWidth="200"
+                                MaxWidth="400"
+                            />
+
+                            <ColumnDefinition
+                                Width="*"
+                                
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            PlaceholderText="Search Orders"
+                            TextChanged="searchBox_TextChanged"
+                            Style="{StaticResource SearchTextBoxStyle}"
+                        />
+
+                        <StackPanel
+                            Style="{StaticResource DataPageActionButtonsStackPanelStyle}"
+                            Grid.Column="2">
+
+                            <Grid
+                                Visibility="{x:Bind viewModel.CanDeleteOrders, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                            
+                                <Button
+                                    IsEnabled="{x:Bind viewModel.SelectedOrder.IsUpdatingIsComplete, Converter={StaticResource BoolToNegatedBoolConverter}, Mode=OneWay}"
+                                    Content="Close"
+                                    FontFamily="{StaticResource DMMonoRegular}"
+                                    VerticalAlignment="Stretch"
+                                    Padding="14 0"
+                                    Click="CloseOrder_Click"
+                                    Visibility="{x:Bind viewModel.SelectedOrder.IsComplete, Converter={StaticResource NegatedBoolToVisibilityConverter}, Mode=OneWay}">
+
+                                    <Button.Resources>
+
+                                        <ResourceDictionary
+                                            Source="ms-appx:///Resources/Controls/Buttons/ClearFormButtonTheme.xaml"
+                                        />
+
+                                    </Button.Resources>
+
+                                </Button>
+
+                            </Grid>
+
+                            <Button
+                                IsEnabled="{x:Bind viewModel.CanDeleteOrders, Mode=OneWay}"
+                                Click="Delete_SelectedOrders"
+                                Padding="14 10">
+
+                                <Button.Resources>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/ClearFormButtonTheme.xaml"
+                                    />
+
+                                </Button.Resources>
+
+                                <Button.Content>
+
+                                    <FontIcon
+                                        Glyph="&#xE555;"
+                                        FontSize="14"
+                                        FontFamily="{StaticResource SystemFluentIcons}"
+                                    />
+
+                                </Button.Content>
+
+                            </Button>
+
+                            <Button
+                                Click="Open_BottomPane"
+                                Padding="14 10">
+
+                                <Button.Resources>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/BlackBackgroundTextIconButtonTheme.xaml"
+                                    />
+
+                                </Button.Resources>
+
+                                <StackPanel
+                                    Spacing="7"
+                                    Orientation="Horizontal">
+
+                                    <FontIcon
+                                        Glyph="&#xE007;"
+                                        Style="{StaticResource DataPageAddDataButtonFontIconStyle}"
+                                    />
+
+                                    <TextBlock
+                                        Text="New Order"
+                                        Style="{StaticResource DataPageAddDataButtonTextBlockStyle}"
+                                    />
+
+                                </StackPanel>
+
+                            </Button>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+
+                <cwuc:DataGrid
+                    SelectionChanged="Table_SelectionChanged"
+                    x:Name="Table"
+                    CellEditEnding="Table_CellEditEnding"
+                    ItemsSource="{x:Bind viewModel.OrdersViewModel.Orders, Mode=OneWay}"
+                    Grid.Row="2">
+
+                    <cwuc:DataGrid.Resources>
+
+                        <ResourceDictionary>
+
+                            <ResourceDictionary.MergedDictionaries>
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/TextBoxes/CellEditingTextBox.xaml"
+                                />
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/NumberBoxes/CellEditingNumberBox.xaml"
+                                />
+
+                            </ResourceDictionary.MergedDictionaries>
+
+                            <Style
+                                TargetType="TextBox"
+                                BasedOn="{StaticResource CellEditingTextBoxStyle}"
+                            />
+
+                            <Style
+                                TargetType="TextBlock"
+                                BasedOn="{StaticResource CellValueDisplayTextBlockStyle}"
+                            />
+
+                        </ResourceDictionary>
+
+                    </cwuc:DataGrid.Resources>
+
+                    <cwuc:DataGrid.Columns>
+
+                        <cwuc:DataGridTextColumn
+                            Header="Account"
+                            Binding="{Binding Account, Mode=OneWay}"
+                        />
+
+                        <cwuc:DataGridTemplateColumn
+                            Header="Grade">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        Text="{Binding Grade.Quality, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                            <cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                                <DataTemplate>
+
+                                    <ComboBox
+                                        Margin="0 4 0 2"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding Grades, Mode=OneTime}"
+                                        SelectedItem="{Binding Grade, Mode=OneWay}"
+                                        ItemTemplate="{StaticResource GradeItemTemplate}"
+                                        Style="{StaticResource FormComboBoxStyle}"
+                                    />
+                                    
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                        </cwuc:DataGridTemplateColumn>
+
+                        <cwuc:DataGridTemplateColumn
+                            Header="Volume (m&#x00B3;)"
+                            HeaderStyle="{StaticResource RightAlignedDataGridColumnHeader}"
+                            DragIndicatorStyle="{StaticResource RightAlignedDataGridColumnHeaderDragIndicatorStyle}">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        Style="{StaticResource NumberCellValueDisplayTextBlockStyle}"
+                                        Text="{Binding Volume, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                            <cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                                <DataTemplate>
+
+                                    <NumberBox
+                                        Style="{StaticResource CellEditingNumberBoxStyle}"
+                                        Value="{Binding Volume, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                        </cwuc:DataGridTemplateColumn>
+
+                        <cwuc:DataGridTemplateColumn
+                            Header="Price (Tsh)"
+                            IsReadOnly="True"
+                            HeaderStyle="{StaticResource RightAlignedDataGridColumnHeader}"
+                            DragIndicatorStyle="{StaticResource RightAlignedDataGridColumnHeaderDragIndicatorStyle}">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        Style="{StaticResource NumberCellValueDisplayTextBlockStyle}"
+                                        Text="{Binding Price, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                        </cwuc:DataGridTemplateColumn>
+
+                        <cwuc:DataGridTemplateColumn
+                            Header="Discount (Tsh)"
+                            HeaderStyle="{StaticResource RightAlignedDataGridColumnHeader}"
+                            DragIndicatorStyle="{StaticResource RightAlignedDataGridColumnHeaderDragIndicatorStyle}">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        Style="{StaticResource NumberCellValueDisplayTextBlockStyle}"
+                                        Text="{Binding Discount, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                            <cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                                <DataTemplate>
+
+                                    <NumberBox
+                                        Style="{StaticResource CellEditingNumberBoxStyle}"
+                                        Value="{Binding Discount, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                        </cwuc:DataGridTemplateColumn>
+
+                        <cwuc:DataGridTemplateColumn
+                            Header="Net Received (Tsh)"
+                            IsReadOnly="True"
+                            HeaderStyle="{StaticResource RightAlignedDataGridColumnHeader}"
+                            DragIndicatorStyle="{StaticResource RightAlignedDataGridColumnHeaderDragIndicatorStyle}">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        Style="{StaticResource NumberCellValueDisplayTextBlockStyle}"
+                                        Text="{Binding NetReceived, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                        </cwuc:DataGridTemplateColumn>
+
+                        <cwuc:DataGridTextColumn
+                            Header="Details"
+                            Binding="{Binding Details, Mode=OneWay}"
+                        />
+
+                        <cwuc:DataGridTextColumn
+                            Header="Date &amp; Time"
+                            IsReadOnly="True"
+                            Binding="{Binding Time, Converter={StaticResource DateTimeToDisplayDateTimeConverter}, Mode=OneWay}"
+                        />
+
+                        <cwuc:DataGridTemplateColumn
+                            Header="Closing Date">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        Style="{StaticResource CellValueDisplayTextBlockStyle}"
+                                        Text="{Binding ClosingTime, Converter={StaticResource DateTimeToDisplayDateConverter}, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+                                
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                            <cwuc:DataGridTemplateColumn.CellEditingTemplate>
+
+                                <DataTemplate>
+
+                                    <CalendarDatePicker
+                                        Style="{StaticResource ApplicationCalendarDatePicker}"
+                                        DateFormat="{}{month.full} {day.integer}, {year.full}"
+                                        MinDate="{Binding CurrentDateTime, Mode=OneWay}"
+                                        PlaceholderText=""
+                                        FontSize="16"
+                                        Foreground="{StaticResource BlackColor}"
+                                        Date="{Binding ClosingTime, Mode=OneWay}"
+                                    />
+                                    
+                                </DataTemplate>
+                                
+                            </cwuc:DataGridTemplateColumn.CellEditingTemplate>
+                            
+                        </cwuc:DataGridTemplateColumn>
+
+                        <cwuc:DataGridTemplateColumn
+                            IsReadOnly="True"
+                            Header="Closed">
+
+                            <cwuc:DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        Style="{StaticResource CellValueDisplayTextBlockStyle}"
+                                        FontFamily="{StaticResource SystemFluentIcons}"
+                                        Text="{Binding IsCompleteString, Mode=OneWay}"
+                                    />
+
+                                </DataTemplate>
+
+                            </cwuc:DataGridTemplateColumn.CellTemplate>
+
+                        </cwuc:DataGridTemplateColumn>
+                        
+                    </cwuc:DataGrid.Columns>
+
+                </cwuc:DataGrid>
+
+            </Grid>
+
+        </SplitView.Content>
+
+    </SplitView>
+
+</Page>

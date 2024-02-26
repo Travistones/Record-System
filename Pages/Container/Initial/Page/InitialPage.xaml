@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Container.Initial.Page.InitialPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Container.Initial.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{StaticResource TransparentColor}">
+
+    <Grid
+        Padding="64">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition
+                Height="*"
+            />
+
+            <RowDefinition
+                Height="Auto"
+            />
+
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            Spacing="14"
+            HorizontalAlignment="Center"
+            Orientation="Vertical">
+
+            <ProgressRing
+                IsActive="True"
+                Background="{StaticResource TransparentColor}"
+                Foreground="{StaticResource BlackColor50}"
+                Height="32"
+                Width="32"
+            />
+
+            <TextBlock
+                Text="Loading Data"
+                FontFamily="{StaticResource DMMonoMedium}"
+                FontSize="10"
+                Foreground="{StaticResource BlackColor50}"
+            />
+
+        </StackPanel>
+
+        <TextBlock
+            FontFamily="{StaticResource AudioWide}"
+            FontSize="32"
+            Text="RECORDS SYSTEM"
+            TextWrapping="Wrap"
+            VerticalAlignment="Center"
+            Foreground="{StaticResource BlackColor}"
+            HorizontalAlignment="Center"
+            Loaded="Page_Loaded"
+        />
+
+    </Grid>
+    
+</Page>

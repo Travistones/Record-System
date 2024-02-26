@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Content.Summary.Pages.Pebbles.Page.PebblesSummaryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Summary.Pages.Pebbles.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oxypControls="using:OxyPlot"
+    xmlns:oxypSeries="using:OxyPlot.Series"
+    xmlns:oxypAxes="using:OxyPlot.Axes"
+    xmlns:doubleToCurrency="using:Record_System.BackEnd.Converters.DoubleToCurrency"
+    xmlns:colorToOxyColor="using:Record_System.BackEnd.Converters.ColorToOxyColor"
+    xmlns:colorToSoliColorBrush="using:Record_System.BackEnd.Converters.ColorToSolidColorBrush"
+    mc:Ignorable="d"
+    Background="{StaticResource TransparentColor}">
+
+    <Page.Resources>
+
+        <colorToOxyColor:ColorToOxyColorConverter
+            x:Key="ColorToOxyColorConverter"
+        />
+
+        <colorToSoliColorBrush:ColorToSolidColorBrushConverter
+            x:Key="ColorToSolidColorBrushConverter"
+        />
+
+        <doubleToCurrency:DoubleToCurrencyConverter
+            x:Key="DoubleToCurrencyConverter"
+        />
+
+    </Page.Resources>
+
+    <ScrollViewer>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition
+                    Height="Auto"
+                />
+
+                <RowDefinition
+                    Height="*"
+                />
+
+                <RowDefinition
+                    Height="Auto"
+                />
+
+            </Grid.RowDefinitions>
+
+            <Grid
+                RowSpacing="7"
+                ColumnSpacing="44"
+                Margin="90 0 90 14">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+
+                    <ColumnDefinition
+                        Width="*"
+                    />
+                
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Text="Pebbles"
+                    Style="{StaticResource SummaryTitleTextBlockStyle}"
+                />
+
+                <Grid
+                    Grid.Row="1"
+                    ColumnSpacing="7">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition
+                            Width="Auto"
+                        />
+
+                        <ColumnDefinition
+                            Width="Auto"
+                        />
+                        
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeOfPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                        Style="{StaticResource SummaryTitleTotalTextBlockStyle}"
+                    />
+
+                    <TextBlock
+                        Foreground="{StaticResource BlackColor70}"
+                        FontSize="15"
+                        HorizontalAlignment="Left"
+                        TextLineBounds="Tight"
+                        VerticalAlignment="Top"
+                        Margin="0 7 0 0"
+                        FontFamily="{StaticResource DMMonoLight}"
+                        Grid.Column="1"
+                        Text="m&#x00B3;"
+                    />
+
+                </Grid>
+            
+                <Grid
+                    ColumnSpacing="7"
+                    Grid.Column="1"
+                    ToolTipService.ToolTip="{x:Bind pebblesTotalAmountTextBlock.Text, Mode=OneWay}"
+                    Grid.Row="1"
+                    HorizontalAlignment="Right">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition
+                            Width="Auto"
+                        />
+                        
+                        <ColumnDefinition
+                            Width="*"
+                        />
+                        
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Grid.Column="1"
+                        x:Name="pebblesTotalAmountTextBlock"
+                        Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountEarnedFromPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                        Style="{StaticResource SummaryTitleTotalTextBlockStyle}"
+                        TextTrimming="CharacterEllipsis"
+                    />
+
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Tsh"
+                        VerticalAlignment="Top"
+                        FontSize="12"
+                        Margin="0 4 0 0"
+                        FontFamily="{StaticResource DMMonoRegular}"
+                        Foreground="{StaticResource BlackColor70}"
+                    />
+
+                </Grid>
+
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Background="{StaticResource BlackColor1}"
+                BorderThickness="0 1"
+                BorderBrush="{StaticResource BlackColor5}"
+                Padding="0 21"
+                Margin="0 14 0 0"
+                MinHeight="448">
+        
+                <oxypControls:PlotView
+                    MaxHeight="576"
+                    Background="{StaticResource TransparentColor}">
+
+                    <oxypControls:PlotView.Model>
+
+                        <oxypControls:PlotModel
+                            x:Name="PebblesGraphPlotModel">
+
+                            <oxypControls:PlotModel.Axes>
+
+                                <oxypAxes:DateTimeAxis
+                                    StringFormat="MMMM dd yyyy"
+                                    Position="Bottom"
+                                    IsZoomEnabled="False"
+                                    IsAxisVisible="False"
+                                />
+
+                                <oxypAxes:LinearAxis
+                                    Position="Left"
+                                    IsZoomEnabled="False"
+                                    IsAxisVisible="False"
+                                />
+
+                            </oxypControls:PlotModel.Axes>
+                
+                            <oxypControls:PlotModel.Series>
+
+                                <oxypSeries:LineSeries
+                                    ItemsSource="{x:Bind viewModel.GraphsViewModel.TotalAmountEarnedFromGradeAPebblesDataPoints, Mode=OneWay}"
+                                    Color="{x:Bind gradeAColor, Converter={StaticResource ColorToOxyColorConverter}}"
+                                    x:Name="PebblesGraphLineSeriesA"
+                                />
+
+                                <oxypSeries:LineSeries
+                                    ItemsSource="{x:Bind viewModel.GraphsViewModel.TotalAmountEarnedFromGradeBPebblesDataPoints, Mode=OneWay}"
+                                    Color="{x:Bind gradeBColor, Converter={StaticResource ColorToOxyColorConverter}}"
+                                    x:Name="PebblesGraphLineSeriesB"
+                                />
+
+                                <oxypSeries:LineSeries
+                                    ItemsSource="{x:Bind viewModel.GraphsViewModel.TotalAmountEarnedFromGradeCPebblesDataPoints, Mode=OneWay}"
+                                    Color="{x:Bind gradeCColor, Converter={StaticResource ColorToOxyColorConverter}}"
+                                    x:Name="PebblesGraphLineSeriesC"
+                                />
+
+                            </oxypControls:PlotModel.Series>
+
+                        </oxypControls:PlotModel>
+
+                    </oxypControls:PlotView.Model>
+
+                </oxypControls:PlotView>
+
+            </Grid>
+
+            <Grid
+                ColumnSpacing="30"
+                RowSpacing="17"
+                Grid.Row="2"
+                Margin="0 28 90 28">
+
+                <Grid.Resources>
+
+                    <Style
+                        TargetType="Rectangle">
+
+                        <Setter
+                            Property="Width"
+                            Value="16"
+                        />
+                        
+                        <Setter
+                            Property="Height"
+                            Value="16"
+                        />
+
+                        <Setter
+                            Property="Margin"
+                            Value="40 0 0 0"
+                        />
+
+                        <Setter
+                            Property="HorizontalAlignment"
+                            Value="Left"
+                        />
+
+                        <Setter
+                            Property="VerticalAlignment"
+                            Value="Center"
+                        />
+
+                    </Style>
+
+                    <Style
+                        TargetType="TextBlock"
+                        x:Key="columnHeaderTextBlockStyle">
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource DMMonoRegular}"
+                        />
+
+                        <Setter
+                            Property="FontSize"
+                            Value="14"
+                        />
+
+                        <Setter
+                            Property="Foreground"
+                            Value="{StaticResource BlackColor40}"
+                        />
+                        
+                    </Style>
+                    
+                    <Style
+                        TargetType="TextBlock"
+                        x:Key="gradeTextBlockStyle">
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource DMMonoMedium}"
+                        />
+
+                        <Setter
+                            Property="FontSize"
+                            Value="18"
+                        />
+
+                        <Setter
+                            Property="Foreground"
+                            Value="{StaticResource BlackColor70}"
+                        />
+                        
+                    </Style>
+
+                    <Style
+                        TargetType="TextBlock"
+                        x:Key="valueTextBlockStyle">
+
+                        <Setter
+                            Property="FontFamily"
+                            Value="{StaticResource AudioWide}"
+                        />
+
+                        <Setter
+                            Property="FontSize"
+                            Value="16"
+                        />
+
+                        <Setter
+                            Property="Foreground"
+                            Value="{StaticResource BlackColor70}"
+                        />
+
+                        <Setter
+                            Property="TextTrimming"
+                            Value="CharacterEllipsis"
+                        />
+
+                        <Setter
+                            Property="HorizontalAlignment"
+                            Value="Right"
+                        />
+
+                    </Style>
+                    
+                </Grid.Resources>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition
+                        Width="61"
+                    />
+                    
+                    <ColumnDefinition
+                        Width="Auto"
+                    />
+                    
+                    <ColumnDefinition
+                        Width="*"
+                    />
+                    
+                    <ColumnDefinition
+                        Width="*"
+                    />
+                    
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                    <RowDefinition
+                        Height="Auto"
+                    />
+
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Column="1"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Grades"
+                />
+
+                <TextBlock
+                    Grid.Column="2"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Total Volume (m&#x00B3;)"
+                    HorizontalAlignment="Right"
+                />
+
+                <TextBlock
+                    Grid.Column="3"
+                    Style="{StaticResource columnHeaderTextBlockStyle}"
+                    Text="Total Amount (Tsh)"
+                    HorizontalAlignment="Right"
+                />
+
+                <Rectangle
+                    Grid.Row="1"
+                    Fill="{x:Bind gradeAColor, Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                />
+
+                <Rectangle
+                    Grid.Row="2"
+                    Fill="{x:Bind gradeBColor, Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                />
+
+                <Rectangle
+                    Grid.Row="3"
+                    Fill="{x:Bind gradeCColor, Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                />
+
+                <TextBlock
+                    Text="A"
+                    Style="{StaticResource gradeTextBlockStyle}"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="B"
+                    Style="{StaticResource gradeTextBlockStyle}"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                />
+
+                <TextBlock
+                    Text="C"
+                    Style="{StaticResource gradeTextBlockStyle}"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeOfGradeAPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="2"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeOfGradeBPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="2"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="2"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalVolumeOfGradeCPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="2"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="3"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountEarnedFromGradeAPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="3"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="1"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountEarnedFromGradeBPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="3"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="2"
+                />
+
+                <TextBlock
+                    Text="{x:Bind viewModel.OverallTimeViewModel.OverallTime.TotalAmountEarnedFromGradeCPebbles, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                    Grid.Column="3"
+                    Style="{StaticResource valueTextBlockStyle}"
+                    Grid.Row="3"
+                />
+
+            </Grid>
+
+        </Grid>
+
+    </ScrollViewer>
+    
+</Page>

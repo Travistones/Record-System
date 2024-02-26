@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Record System (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Record System (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

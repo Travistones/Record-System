@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Record_System.Pages.Content.Account.Page.AccountPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Pages.Content.Account.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:BoolToVisibility="using:Record_System.BackEnd.Converters.BoolToVisibility"
+    xmlns:DoubleToCurrency="using:Record_System.BackEnd.Converters.DoubleToCurrency"
+    xmlns:system="using:System"
+    Background="{StaticResource TransparentColor}">
+
+    <Page.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/ToggleSwitches/AccountToggleSwitch.Xaml"
+                />
+                
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style
+                TargetType="Border"
+                x:Key="SeparatorBorderStyle">
+
+                <Setter
+                    Property="Background"
+                    Value="{StaticResource TransparentColor}"
+                />
+
+                <Setter
+                    Property="Grid.Row"
+                    Value="1"
+                />
+
+                <Setter
+                    Property="Height"
+                    Value="1"
+                />
+                
+            </Style>
+
+            <Style
+                x:Key="SettingsTitleTextBlockStyle"
+                TargetType="TextBlock">
+
+                <Setter
+                    Property="FontSize"
+                    Value="14"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="30 0 0 0"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoMedium}"
+                />
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor20}"
+                />
+
+            </Style>
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="SettingTextBlockStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="16"
+                />
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoMedium}"
+                />
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor90}"
+                />
+                
+            </Style>
+
+            <Style
+                TargetType="Button"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                x:Key="ChangeEditButtonStyle">
+
+                <Setter
+                    Property="Grid.Column"
+                    Value="1"
+                />
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+
+                <Setter
+                    Property="FontSize"
+                    Value="14"
+                />
+
+                <Setter
+                    Property="Padding"
+                    Value="14 7"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoRegular}"
+                />
+
+            </Style>
+
+            <BoolToVisibility:BoolToVisibilityConverter
+                x:Key="BoolToVisibilityConverter"
+            />
+
+            <BoolToVisibility:NegatedBoolToVisibilityConverter
+                x:Key="NegatedBoolToVisibilityConverter"
+            />
+
+            <DoubleToCurrency:DoubleToCurrencyConverter
+                x:Key="DoubleToCurrencyConverter"
+            />
+
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition
+                Height="*"
+            />
+
+            <RowDefinition
+                Height="Auto"
+            />
+                
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="1"
+            Visibility="{x:Bind viewModel.IsUpdatingSettings, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Bottom"
+            Background="{ThemeResource SystemFillColorCautionBackgroundBrush}"
+            Padding="7">
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="14"
+                Orientation="Horizontal">
+
+                <ProgressRing
+                    IsActive="True"
+                    Height="12"
+                    MinWidth="6"
+                    MinHeight="6"
+                    Width="12"
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource BlackColor}"
+                    Background="{StaticResource TransparentColor}"
+                />
+
+                <TextBlock
+                    Text="{x:Bind system:String.Format('Working On {0} Updates', viewModel.NumberOfUpdatingEvents), Mode=OneWay}"
+                    FontFamily="{StaticResource DMMonoRegular}"
+                    FontSize="12"
+                />
+
+            </StackPanel>
+
+        </Border>
+
+        <ScrollViewer
+            Grid.Row="0">
+
+            <StackPanel
+                Spacing="35"
+                Padding="60 0"
+                Margin="0 7 0 28"
+                Orientation="Vertical"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+
+                <!--<Grid
+                    RowSpacing="7">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Text="Profile"
+                        Style="{StaticResource SettingsTitleTextBlockStyle}"
+                    />
+
+                    <Grid
+                        ColumnSpacing="14"
+                        Grid.Row="1">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                            <ColumnDefinition
+                                Width="*"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Grid
+                            CornerRadius="50"
+                            Width="100"
+                            Height="100"
+                            Margin="2 0 0 0">
+
+                            <Border
+                                Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.HasNoProfilePicture, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                CornerRadius="50"
+                                Width="100"
+                                Height="100"
+                                HorizontalAlignment="Center"
+                                Background="{StaticResource WhiteColor5}">
+
+                                <FontIcon
+                                    Glyph="&#xEB06;"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource SystemFluentIcons}"
+                                    FontSize="78"
+                                    Foreground="{StaticResource WhiteColor80}"
+                                />
+
+                            </Border>
+
+                            <Image
+                                Stretch="UniformToFill"
+                                Source="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.ProfilePictureDownloadUrl, Mode=OneWay}"
+                                Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.HasProfilePicture, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                            />
+
+                        </Grid>
+
+                        <Grid
+                            Grid.Column="1"
+                            RowSpacing="14">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition
+                                    Height="*"
+                                />
+                            
+                                <RowDefinition
+                                    Height="*"
+                                />
+                            
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                FontSize="20"
+                                FontFamily="{StaticResource DMMonoMedium}"
+                                Foreground="{StaticResource WhiteColor80}"
+                                VerticalAlignment="Bottom"
+                                TextTrimming="CharacterEllipsis"
+                                Text="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.FullName, Mode=OneWay}"
+                                TextLineBounds="Tight"
+                            />
+
+                            <TextBlock
+                                Grid.Row="1"
+                                TextTrimming="CharacterEllipsis"
+                                VerticalAlignment="Top"
+                                TextLineBounds="Tight"
+                                Foreground="{StaticResource WhiteColor40}"
+                                Text="{x:Bind viewModel.AccountViewModel.Account.UserName, Mode=OneWay}"
+                                FontFamily="{StaticResource DMMonoLight}"
+                                FontSize="14"
+                            />
+
+                        </Grid>
+
+                        <Button
+                            Click="EditMyAccount_Click"
+                            Grid.Column="2"
+                            Style="{StaticResource ChangeEditButtonStyle}"
+                            Margin="0 0 30 0"
+                            Content="Edit My Account">
+
+                            <Button.Resources>
+
+                                <ResourceDictionary
+                                    Source="ms-appx:///Resources/Controls/Buttons/EditMyAccountButtonTheme.xaml"
+                                />
+
+                            </Button.Resources>
+
+                        </Button>
+
+                    </Grid>
+                
+                </Grid>-->
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="*"
+                        />
+                    
+                        <RowDefinition
+                            Height="Auto"
+                        />
+                    
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Text="Application Settings"
+                        Style="{StaticResource SettingsTitleTextBlockStyle}"
+                    />
+
+                    <Grid
+                        Margin="0 7 0 0"
+                        Padding="30 20"
+                        CornerRadius="8"
+                        Background="{StaticResource BlackColor5}"
+                        Grid.Row="1">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition
+                                Width="*"
+                            />
+
+                            <ColumnDefinition
+                                Width="Auto"
+                            />
+                        
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Text="Auto Fill Price Per Volume"
+                            Style="{StaticResource SettingTextBlockStyle}"
+                        />
+
+                        <ToggleSwitch
+                            Grid.Column="1"
+                            Loaded="AutoFillPricePerVolume_Loaded"
+                            Toggled="AutoFillPricePerVolume_Toggled"
+                            Style="{StaticResource AccountToggleSwitchStyle}"
+                        />
+
+                    </Grid>
+
+                    <Grid
+                        Grid.Row="2"
+                        Margin="0 7 0 0"
+                        Visibility="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.CanUseCurrentPricePerVolume, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                        CornerRadius="8">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition
+                                Height="Auto"
+                            />
+                        
+                            <RowDefinition
+                                Height="Auto"
+                            />
+
+                            <RowDefinition
+                                Height="Auto"
+                            />
+
+                        </Grid.RowDefinitions>
+
+                        <Grid
+                            Padding="30 20"
+                            Background="{StaticResource BlackColor5}">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition
+                                    Width="*"
+                                />
+                            
+                                <ColumnDefinition
+                                    Width="Auto"
+                                />
+                            
+                            </Grid.ColumnDefinitions>
+                        
+                            <TextBlock
+                                Text="Pricing"
+                                Style="{StaticResource SettingTextBlockStyle}"
+                            />
+
+                            <!--Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.CanModifyPrices, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"-->
+                            <Button
+                                Click="ChangePricing_Click"
+                                Style="{StaticResource ChangeEditButtonStyle}"
+                                Content="Change Pricing">
+
+                                <Button.Resources>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/AccountPricingButtonTheme.xaml"
+                                    />
+
+                                </Button.Resources>
+
+                            </Button>
+
+                        </Grid>
+
+                        <Border
+                            Style="{StaticResource SeparatorBorderStyle}"
+                        />
+
+                        <Grid
+                            Padding="30 20"
+                            Background="{StaticResource BlackColor5}"
+                            Grid.Row="2"
+                            RowSpacing="7"
+                            ColumnSpacing="21">
+
+                            <Grid.Resources>
+
+                                <Style
+                                    x:Key="PriceTextBlockStyle"
+                                    TargetType="TextBlock">
+
+                                    <Setter
+                                        Property="FontFamily"
+                                        Value="{StaticResource AudioWide}"
+                                    />
+
+                                    <Setter
+                                        Property="HorizontalAlignment"
+                                        Value="Right"
+                                    />
+
+                                    <Setter
+                                        Property="FontSize"
+                                        Value="16"
+                                    />
+
+                                    <Setter
+                                        Property="VerticalAlignment"
+                                        Value="Center"
+                                    />
+
+                                    <Setter
+                                        Property="Foreground"
+                                        Value="{StaticResource BlackColor60}"
+                                    />
+
+                                </Style>
+
+                                <Style
+                                    TargetType="TextBlock"
+                                    x:Key="GradeTextBlockStyle">
+
+                                    <Setter
+                                        Property="FontFamily"
+                                        Value="{StaticResource DMMonoRegular}"
+                                    />
+
+                                    <Setter
+                                        Property="FontSize"
+                                        Value="16"
+                                    />
+
+                                    <Setter
+                                        Property="HorizontalAlignment"
+                                        Value="Left"
+                                    />
+
+                                    <Setter
+                                        Property="TextTrimming"
+                                        Value="CharacterEllipsis"
+                                    />
+
+                                    <Setter
+                                        Property="VerticalAlignment"
+                                        Value="Center"
+                                    />
+
+                                    <Setter
+                                        Property="Foreground"
+                                        Value="{StaticResource BlackColor60}"
+                                    />
+
+                                </Style>
+                            
+                            </Grid.Resources>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition
+                                    Height="Auto"
+                                />
+
+                                <RowDefinition
+                                    Height="Auto"
+                                />
+
+                                <RowDefinition
+                                    Height="Auto"
+                                />
+                            
+                                <RowDefinition
+                                    Height="Auto"
+                                />
+                            
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition
+                                    Width="*"
+                                />
+
+                                <ColumnDefinition
+                                    Width="Auto"
+                                />
+                            
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock
+                                Style="{StaticResource GradeTextBlockStyle}"
+                                Text="Grade A"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource GradeTextBlockStyle}"
+                                Grid.Row="1"
+                                Text="Grade B"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource GradeTextBlockStyle}"
+                                Grid.Row="2"
+                                Text="Grade C"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource PriceTextBlockStyle}"
+                                Grid.Column="1"
+                                Text="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.GradeA.Price, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource PriceTextBlockStyle}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Text="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.GradeB.Price, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                            />
+
+                            <TextBlock
+                                Style="{StaticResource PriceTextBlockStyle}"
+                                Grid.Column="1"
+                                Grid.Row="2"
+                                Text="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.GradeC.Price, Converter={StaticResource DoubleToCurrencyConverter}, Mode=OneWay}"
+                            />
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+                <!--<Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition
+                            Height="Auto"
+                        />
+
+                        <RowDefinition
+                            Height="*"
+                        />
+                    
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Text="Company"
+                        Style="{StaticResource SettingsTitleTextBlockStyle}"
+                    />
+
+                    <Grid
+                        CornerRadius="8"
+                        Margin="0 7 0 0"
+                        Grid.Row="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition
+                                Height="Auto"
+                            />
+
+                            <RowDefinition
+                                Height="Auto"
+                            />
+
+                            <RowDefinition
+                                Height="Auto"
+                            />
+                        
+                        </Grid.RowDefinitions>
+
+                        <Grid
+                            Padding="30 20"
+                            Background="{StaticResource BlackColor5}">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition
+                                    Width="*"
+                                />
+
+                                <ColumnDefinition
+                                    Width="Auto"
+                                />
+                            
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock
+                                Text="Company Logo &amp; Name"
+                                Style="{StaticResource SettingTextBlockStyle}"
+                            />
+
+                            --><!--Visibility="{x:Bind viewModel.AccountViewModel.Account.EmployeeAccount.CanModifyCompany, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"--><!--
+                            <Button
+                                Click="ChangeCompanyLogoOrName_Click"
+                                Style="{StaticResource ChangeEditButtonStyle}"
+                                Content="Edit / Change">
+
+                                <Button.Resources>
+
+                                    <ResourceDictionary
+                                        Source="ms-appx:///Resources/Controls/Buttons/AccountPricingButtonTheme.xaml"
+                                    />
+
+                                </Button.Resources>
+
+                            </Button>
+
+                        </Grid>
+                
+                        <Border
+                            Style="{StaticResource SeparatorBorderStyle}"
+                        />
+
+                        <Grid
+                            Padding="30 20"
+                            RowSpacing="14"
+                            Background="{StaticResource BlackColor5}"
+                            Grid.Row="2">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition
+                                    Height="Auto"
+                                />
+
+                                <RowDefinition
+                                    Height="Auto"
+                                />
+
+                            </Grid.RowDefinitions>
+
+                            <Grid
+                                Height="150"
+                                Width="150"
+                                CornerRadius="4"
+                                BorderThickness="1"
+                                HorizontalAlignment="Left"
+                                Background="{StaticResource WhiteColor1}"
+                                BorderBrush="{StaticResource BlackColor5}">
+
+                                <FontIcon
+                                    FontFamily="{StaticResource SystemFluentIcons}"
+                                    Glyph="&#xE889;"
+                                    FontSize="56"
+                                    Visibility="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.HasNoCompanyLogo, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                    Foreground="{StaticResource BlackColor50}"
+                                />
+
+                                <Image
+                                    Stretch="UniformToFill"
+                                    Visibility="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.HasCompanyLogo, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"
+                                    Source="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.CompanyLogoDownloadUrl, Mode=OneWay}"
+                                />
+
+                            </Grid>
+
+                            <Grid
+                                ColumnSpacing="14"
+                                Grid.Row="1">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition
+                                        Width="Auto"
+                                    />
+
+                                    <ColumnDefinition
+                                        Width="*"
+                                    />
+                                
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                                    Text="Name:"
+                                    FontFamily="{StaticResource DMMonoRegular}"
+                                    Foreground="{StaticResource BlackColor40}"
+                                    FontSize="14"
+                                    VerticalAlignment="Top"
+                                />
+
+                                <TextBlock
+                                    Grid.Column="1"
+                                    FontFamily="{StaticResource DMMonoMedium}"
+                                    Foreground="{StaticResource BlackColor70}"
+                                    FontSize="14"
+                                    TextWrapping="Wrap"
+                                    MaxLines="2"
+                                    VerticalAlignment="Top"
+                                    TextTrimming="CharacterEllipsis"
+                                    Text="{x:Bind viewModel.SettingsViewModel.ApplicationSettings.CompanyName, Mode=OneWay}"
+                                />
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>-->
+
+                <HyperlinkButton
+                    Click="ChangePasswordAndUserName_Click"
+                    FontFamily="{StaticResource DMMonoMedium}"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Padding="30 7"
+                    Content="Change Password Or UserName">
+
+                    <HyperlinkButton.Resources>
+
+                        <ResourceDictionary
+                            Source="ms-appx:///Resources/Controls/HyperlinkButtons/LogoutHyperlinkButtonTheme.xaml"
+                        />
+
+                    </HyperlinkButton.Resources>
+
+                </HyperlinkButton>
+
+                <!--<HyperlinkButton
+                    Click="Logout_Click"
+                    FontFamily="{StaticResource DMMonoMedium}"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Padding="30 7"
+                    Content="Logout">
+
+                    <HyperlinkButton.Resources>
+                    
+                        <ResourceDictionary
+                            Source="ms-appx:///Resources/Controls/HyperlinkButtons/LogoutHyperlinkButtonTheme.xaml"
+                        />
+                    
+                    </HyperlinkButton.Resources>
+
+                </HyperlinkButton>-->
+                
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Page>
