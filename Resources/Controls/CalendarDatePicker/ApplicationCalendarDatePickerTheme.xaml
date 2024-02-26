@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.CalendarDatePicker">
+
+    <StaticResource 
+        x:Key="CalendarDatePickerForeground" 
+        ResourceKey="BlackColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerForegroundDisabled" 
+        ResourceKey="BlackColor50" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerCalendarGlyphForeground" 
+        ResourceKey="BlackColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerCalendarGlyphForegroundDisabled" 
+        ResourceKey="BlackColor20" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerTextForeground" 
+        ResourceKey="BlackColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerTextForegroundDisabled" 
+        ResourceKey="BlackColor50" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerTextForegroundSelected" 
+        ResourceKey="BlackColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerHeaderForegroundDisabled" 
+        ResourceKey="BlackColor20" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBackground" 
+        ResourceKey="WhiteColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBackgroundPointerOver" 
+        ResourceKey="WhiteColor90" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBackgroundPressed" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBackgroundDisabled" 
+        ResourceKey="WhiteColor50" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBackgroundFocused" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBorderBrush" 
+        ResourceKey="BlackColor20" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBorderBrushPointerOver" 
+        ResourceKey="BlackColor30" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBorderBrushPressed" 
+        ResourceKey="BlackColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBorderBrushFocused" 
+        ResourceKey="BlackColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarDatePickerBorderBrushDisabled" 
+        ResourceKey="BlackColor10" 
+    />
+
+</ResourceDictionary>

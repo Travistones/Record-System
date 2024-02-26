@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.ComboBoxes">
+
+    <StaticResource x:Key="ComboBoxBackgroundFocused" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxHeaderForeground" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxHeaderForegroundDisabled" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="ComboBoxPlaceHolderForegroundPointerOver" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxPlaceHolderForegroundPressed" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxPlaceHolderForegroundDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxPlaceHolderForegroundFocused" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxItemPillFillBrush" ResourceKey="AccentFillColorDefaultBrush" />
+    <StaticResource x:Key="ComboBoxBackground" ResourceKey="WhiteColor80" />
+    <StaticResource x:Key="ComboBoxBackgroundPointerOver" ResourceKey="WhiteColor90" />
+    <StaticResource x:Key="ComboBoxBackgroundPressed" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxBackgroundDisabled" ResourceKey="WhiteColor50" />
+    <StaticResource x:Key="ComboBoxBackgroundUnfocused" ResourceKey="WhiteColor80" />
+    <StaticResource x:Key="ComboBoxForeground" ResourceKey="BlackColor80" />
+    <StaticResource x:Key="ComboBoxForegroundPointerOver" ResourceKey="BlackColor90" />
+    <StaticResource x:Key="ComboBoxForegroundPressed" ResourceKey="BlackColor90" />
+    <StaticResource x:Key="ComboBoxForegroundDisabled" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ComboBoxForegroundFocused" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxForegroundFocusedPressed" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxPlaceHolderForeground" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxPlaceHolderForegroundFocusedPressed" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxBorderBrush" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="ComboBoxBorderBrushPointerOver" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxBorderBrushPressed" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ComboBoxBorderBrushDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxDropDownBackgroundPointerOver" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxDropDownBackgroundPointerPressed" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxFocusedDropDownBackgroundPointerOver" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxFocusedDropDownBackgroundPointerPressed" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxDropDownGlyphForeground" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ComboBoxEditableDropDownGlyphForeground" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="ComboBoxDropDownGlyphForegroundDisabled" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="ComboBoxDropDownGlyphForegroundFocused" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="ComboBoxDropDownGlyphForegroundFocusedPressed" ResourceKey="BlackColor70" />
+    <StaticResource x:Key="ComboBoxDropDownBackground" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ComboBoxDropDownForeground" ResourceKey="BlackColor40" />
+    <StaticResource x:Key="ComboBoxDropDownBorderBrush" ResourceKey="WhiteColor" />
+
+</ResourceDictionary>

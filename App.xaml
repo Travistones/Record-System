@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="Record_System.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System"
+    RequestedTheme="Light">
+    
+    <Application.Resources>
+        
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <XamlControlsResources 
+                    xmlns="using:Microsoft.UI.Xaml.Controls"
+                />
+
+                <!-- Other merged dictionaries here -->
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Fonts/ApplicationFonts.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Colors/ApplicationColors.xaml"
+                />
+
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/DataGrid/ApplicationDataGrid.xaml"
+                />
+                
+                <ResourceDictionary
+                    Source="ms-appx:///Resources/Controls/CalendarDatePicker/ApplicationCalendarViewTheme.xaml"
+                />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Other app resources here -->
+            
+            <!-- ADD DATA FORM SCROLLVIEWER -->
+
+            <Style
+                TargetType="ScrollViewer"
+                x:Key="AddDataFormScrollViewerStyle">
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Stretch"
+                />
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Stretch"
+                />
+
+                <Setter
+                    Property="HorizontalContentAlignment"
+                    Value="Center"
+                />
+
+                <Setter
+                    Property="VerticalContentAlignment"
+                    Value="Center"
+                />
+
+            </Style>
+            
+            <!-- ADD DATA FORM TOP BORDER STYLE -->
+
+            <Style
+                TargetType="Border"
+                x:Key="AddDataFormTopBoderStyle">
+
+                <Setter
+                    Property="Background"
+                    Value="{StaticResource AddDataFormTopBorderBackgroundBrush}"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="14 0"
+                />
+                
+            </Style>
+
+            <!-- ADD DATA FORM BOTTOM BORDER STYLE -->
+
+            <Style
+                TargetType="Border"
+                x:Key="AddDataFormBottomBoderStyle">
+
+                <Setter
+                    Property="Background"
+                    Value="{StaticResource AddDataFormBottomBoderBackgroundBrush}"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="14 0"
+                />
+
+            </Style>
+            
+            <!-- ADD DATA FORM GRID STYLE -->
+
+            <Style
+                TargetType="Grid"
+                x:Key="AddDataFormGridStyle">
+
+                <Setter
+                    Property="MaxWidth"
+                    Value="784"
+                />
+
+                <Setter
+                    Property="MinWidth"
+                    Value="400"
+                />
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Stretch"
+                />
+
+            </Style>
+
+            <!-- ADD DATA FORM TOP GRID STYLE -->
+
+            <Style
+                TargetType="Grid"
+                x:Key="AddDataFormTopGridStyle"
+                BasedOn="{StaticResource AddDataFormGridStyle}">
+
+                <Setter
+                    Property="Margin"
+                    Value="57 0 57 32"
+                />
+                
+            </Style>
+
+            <!-- ADD DATA FORM BOTTOM GRID STYLE -->
+
+            <Style
+                TargetType="Grid"
+                x:Key="AddDataFormBottomGridStyle"
+                BasedOn="{StaticResource AddDataFormGridStyle}">
+
+                <Setter
+                    Property="Margin"
+                    Value="57 32 57 0"
+                />
+
+            </Style>
+
+            <!-- ADD DATA FORM TITLE STACKPANEL STYLE -->
+
+            <Style
+                x:Key="AddDataFormTitleStackPanelStyle"
+                TargetType="StackPanel">
+
+                <Setter
+                    Property="Orientation"
+                    Value="Horizontal"
+                />
+                
+                <Setter
+                    Property="Spacing"
+                    Value="10"
+                />
+                
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Left"
+                />
+                
+            </Style>
+                
+            <!-- ADD DATA FORM TITLE FONTICON STYLE -->
+
+            <Style
+                TargetType="FontIcon"
+                x:Key="AddDataFormTitleFontIconStyle">
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor}"
+                />
+                
+                <Setter
+                    Property="FontSize"
+                    Value="28"
+                />
+                
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource SystemFluentIcons}"
+                />
+                
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+                
+                <Setter
+                    Property="Margin"
+                    Value="0 3 0 0"
+                />
+                
+            </Style>
+
+            <!-- ADD DATA FORM TITLE TEXTBLOCK STYLE -->
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="AddDataFormTitleTextBlockStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="22"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoMedium}"
+                />
+                
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+                
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor90}"
+                />
+                
+            </Style>
+
+            <!-- ADD DATA FORM CLOSE BUTTON STYLE -->
+
+            <Style
+                TargetType="Button"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                x:Key="AddDataFormCloseButtonStyle">
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+                
+            </Style>
+
+            <!-- ADD DATA FORM CLOSE FONTICON STYLE -->
+
+            <Style
+                TargetType="FontIcon"
+                x:Key="AddDataFormCloseFontIconStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="16"
+                />
+                
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource SystemFluentIcons}"
+                />
+                
+            </Style>
+
+            <!-- ADD DATA FORM BOTTOM BUTTONS STYLE -->
+
+            <Style
+                TargetType="Button"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                x:Key="AddDataFormBottomButtonsStyle">
+
+                <Setter
+                    Property="BorderThickness"
+                    Value="1"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoLight}"
+                />
+
+            </Style>
+
+            <!-- ADD DATA FORM CLEAR BUTTONS STYLE -->
+
+            <Style
+                TargetType="Button"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                x:Key="AddDataFormClearButtonsStyle">
+
+                <Setter
+                    Property="BorderThickness"
+                    Value="1"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoLight}"
+                />
+
+            </Style>
+
+            <!-- ADD DATA FORM DONE BUTTON STYLE -->
+
+            <Style
+                TargetType="Button"
+                BasedOn="{StaticResource AddDataFormClearButtonsStyle}"
+                x:Key="AddDataFormDoneButtonStyle">
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Right"
+                />
+
+            </Style>
+                
+            <!-- DATA PAGE HEADER GRID STYLE -->
+            <Style
+                x:Key="DataPageHeaderGridStyle"
+                TargetType="Grid">
+
+                <Setter
+                    Property="Background"
+                    Value="{StaticResource BlackColor10}"
+                />
+
+                <Setter
+                    Property="Padding"
+                    Value="0 21"
+                />
+                
+            </Style>
+                
+            <!-- DATA PAGE HEADER TEXTBLOCK STYLE -->
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="DataPageHeaderTextBlockStyle">
+
+                <Setter
+                    Property="Margin"
+                    Value="90 0"
+                />
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor70}"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoRegular}"
+                />
+
+            </Style>
+                
+            <!-- DATA PAGE TOTAL AMOUNT TEXTBLOCK STYLE -->
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="DataPageTotalAmountTextBlockStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="32"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="90 0 90 12"
+                />
+
+                <Setter
+                    Property="Visibility"
+                    Value="Visible"
+                />
+
+                <Setter
+                    Property="TextTrimming"
+                    Value="CharacterEllipsis"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource AudioWide}"
+                />
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor90}"
+                />
+                
+            </Style>
+                
+            <!-- DATA PAGE ACTION BUTTONS STACKPANEL STYLE -->
+
+            <Style
+                TargetType="StackPanel"
+                x:Key="DataPageActionButtonsStackPanelStyle">
+
+                <Setter
+                    Property="Spacing"
+                    Value="14"
+                />
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Right"
+                />
+
+                <Setter
+                    Property="Orientation"
+                    Value="Horizontal"
+                />
+                
+            </Style>
+                
+            <!-- DATA PAGE ADD DATA BUTTON FONTICON STYLE -->
+
+            <Style
+                TargetType="FontIcon"
+                x:Key="DataPageAddDataButtonFontIconStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="14"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource SystemFluentIcons}"
+                />
+                
+            </Style>
+                
+            <!-- DATA PAGAE ADD DATA BUTTON TEXTBLOCK STYLE -->
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="DataPageAddDataButtonTextBlockStyle">
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+
+                <Setter
+                    Property="TextLineBounds"
+                    Value="Tight"
+                />
+
+                <Setter
+                    Property="FontSize"
+                    Value="14"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoRegular}"
+                />
+                
+            </Style>
+            
+            <!-- ADD DATA FORM TOGGLEBUTTON STYLE -->
+
+            <Style
+                TargetType="ToggleButton"
+                x:Key="AddDataFormToggleButtonStyle"
+                BasedOn="{StaticResource DefaultToggleButtonStyle}">
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoRegular}"
+                />
+
+                <Setter
+                    Property="FontSize"
+                    Value="13"
+                />
+
+                <Setter
+                    Property="Height"
+                    Value="40"
+                />
+
+                <Setter
+                    Property="CornerRadius"
+                    Value="4"
+                />
+
+                <Setter
+                    Property="BorderThickness"
+                    Value="1"
+                />
+
+            </Style>
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="AddDataFormQuestionHeaderTextBlock">
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor70}"
+                />
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Left"
+                />
+
+                <Setter
+                    Property="TextTrimming"
+                    Value="CharacterEllipsis"
+                />
+
+                <Setter
+                    Property="FontSize"
+                    Value="12"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="10 0 0 0"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoRegular}"
+                />
+                
+            </Style>
+                
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="CellValueDisplayTextBlockStyle">
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor}"
+                />
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="12 0"
+                />
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Left"
+                />
+
+            </Style>
+
+            <Style
+                TargetType="TextBlock"
+                BasedOn="{StaticResource CellValueDisplayTextBlockStyle}"
+                x:Key="NumberCellValueDisplayTextBlockStyle">
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Right"
+                />
+
+            </Style>
+            
+            <Style
+                TargetType="StackPanel"
+                x:Key="FormStackPanelStyle">
+
+                <Setter
+                    Property="HorizontalAlignment"
+                    Value="Stretch"
+                />
+
+                <Setter
+                    Property="VerticalAlignment"
+                    Value="Center"
+                />
+
+                <Setter
+                    Property="Orientation"
+                    Value="Vertical"
+                />
+
+                <Setter
+                    Property="Margin"
+                    Value="64"
+                />
+
+                <Setter
+                    Property="Spacing"
+                    Value="40"
+                />
+
+                <Setter
+                    Property="MaxWidth"
+                    Value="800"
+                />
+
+                <Setter
+                    Property="MinWidth"
+                    Value="400"
+                />
+
+            </Style>
+            
+            <!-- SUMMARY TITLE TOTAL TEXTBLOCK STYLE -->
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="SummaryTitleTotalTextBlockStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="24"
+                />
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor70}"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource AudioWide}"
+                />
+
+            </Style>
+            
+            <!-- SUMMARY TITLE TEXTBLOCK STYLE -->
+
+            <Style
+                TargetType="TextBlock"
+                x:Key="SummaryTitleTextBlockStyle">
+
+                <Setter
+                    Property="FontSize"
+                    Value="24"
+                />
+
+                <Setter
+                    Property="Foreground"
+                    Value="{StaticResource BlackColor40}"
+                />
+
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource DMMonoMedium}"
+                />
+                
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.HyperlinkButtons">
+    
+    <StaticResource x:Key="HyperlinkButtonForeground" ResourceKey="LogoutForegroundColor" />
+    <StaticResource x:Key="HyperlinkButtonForegroundPointerOver" ResourceKey="LogoutForegroundColorPointerOver" />
+    <StaticResource x:Key="HyperlinkButtonForegroundPressed" ResourceKey="LogoutForegroundColorPressed" />
+    <StaticResource x:Key="HyperlinkButtonForegroundDisabled" ResourceKey="LogoutForegroundColorDisabled" />
+    <StaticResource x:Key="HyperlinkButtonBackground" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBackgroundPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBackgroundPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBackgroundDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBorderBrush" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBorderBrushPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBorderBrushPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="HyperlinkButtonBorderBrushDisabled" ResourceKey="TransparentColor" />
+    
+</ResourceDictionary>

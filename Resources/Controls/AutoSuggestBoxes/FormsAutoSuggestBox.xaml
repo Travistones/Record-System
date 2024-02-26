@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.AutoSuggestBoxes">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary
+            Source="ms-appx:///Resources/Controls/TextBoxes/FormsTextBox.xaml"
+        />
+    
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style x:Key="FormsAutoSuggestBoxStyle" TargetType="AutoSuggestBox">
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
+        <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource TextControlBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{ThemeResource TextControlBorderThemeThickness}" />
+        <Setter Property="FontFamily" Value="{StaticResource DMMonoRegular}" />
+        <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+        <Setter Property="TextBoxStyle" Value="{StaticResource AutoSuggestBoxTextBoxStyle}" />
+        <Setter Property="UseSystemFocusVisuals" Value="{ThemeResource IsApplicationFocusVisualKindReveal}" />
+        <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+        <Setter Property="AutoSuggestBoxHelper.KeepInteriorCornersSquare" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="AutoSuggestBox">
+                    <Grid x:Name="LayoutRoot">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Orientation">
+                                <VisualState x:Name="Landscape" />
+                                <VisualState x:Name="Portrait" />
+
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+                        
+                        <TextBox x:Name="TextBox" Style="{StaticResource FormsTextBoxStyle}" PlaceholderText="{TemplateBinding PlaceholderText}" Header="{TemplateBinding Header}" ScrollViewer.BringIntoViewOnFocusChange="False" Canvas.ZIndex="0" DesiredCandidateWindowAlignment="BottomEdge" />
+
+                        <Popup 
+                            PlacementTarget="{Binding TextBox}"
+                            x:Name="SuggestionsPopup">
+
+                            <Border x:Name="SuggestionsContainer" Padding="0" BorderBrush="#FF898989" BorderThickness="3"  Background="{StaticResource WhiteColor}" CornerRadius="4">
+                                <ListView x:Name="SuggestionsList" DisplayMemberPath="{TemplateBinding DisplayMemberPath}" IsItemClickEnabled="True" CornerRadius="0 0 4 4" ItemTemplate="{TemplateBinding ItemTemplate}" ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}" Background="{StaticResource TransparentColor}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}" MaxHeight="{ThemeResource AutoSuggestListMaxHeight}" Margin="{ThemeResource AutoSuggestListPadding}" FontFamily="{StaticResource DMMonoRegular}">
+
+                                    <ListView.Resources>
+
+                                        <StaticResource x:Key="ListViewItemBorderBackground" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemForegroundPressed" ResourceKey="BlackColor50" />
+                                        <StaticResource x:Key="ListViewItemForegroundSelectedPointerOver" ResourceKey="WhiteColor" />
+                                        <StaticResource x:Key="ListViewItemForegroundSelectedPressed" ResourceKey="WhiteColor" />
+                                        <x:Boolean x:Key="ListViewItemSelectionIndicatorVisualEnabled">True</x:Boolean>
+                                        <CornerRadius x:Key="ListViewItemCornerRadius">4</CornerRadius>
+                                        <CornerRadius x:Key="ListViewItemCheckBoxCornerRadius">3</CornerRadius>
+                                        <CornerRadius x:Key="ListViewItemSelectionIndicatorCornerRadius">1.5</CornerRadius>
+                                        <StaticResource x:Key="ListViewItemCheckPressedBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckDisabledBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxPointerOverBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxPressedBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxDisabledBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxSelectedBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxSelectedPointerOverBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxSelectedPressedBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxSelectedDisabledBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxBorderBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxPointerOverBorderBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxPressedBorderBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxDisabledBorderBrush" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemBackgroundSelectedDisabled" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemSelectionIndicatorBrush" ResourceKey="WhiteColor" />
+                                        <StaticResource x:Key="ListViewItemSelectionIndicatorPointerOverBrush" ResourceKey="WhiteColor" />
+                                        <StaticResource x:Key="ListViewItemSelectionIndicatorPressedBrush" ResourceKey="WhiteColor" />
+                                        <StaticResource x:Key="ListViewItemSelectionIndicatorDisabledBrush" ResourceKey="WhiteColor" />
+                                        <StaticResource x:Key="ListViewItemBackground" ResourceKey="TransparentColor" />
+                                        <StaticResource x:Key="ListViewItemBackgroundPointerOver" ResourceKey="BlackColor5" />
+                                        <StaticResource x:Key="ListViewItemBackgroundPressed" ResourceKey="BlackColor10" />
+                                        <StaticResource x:Key="ListViewItemBackgroundSelected" ResourceKey="BlackColor50" />
+                                        <StaticResource x:Key="ListViewItemBackgroundSelectedPointerOver" ResourceKey="BlackColor50" />
+                                        <StaticResource x:Key="ListViewItemBackgroundSelectedPressed" ResourceKey="BlackColor40" />
+                                        <StaticResource x:Key="ListViewItemForeground" ResourceKey="BlackColor70" />
+                                        <StaticResource x:Key="ListViewItemForegroundPointerOver" ResourceKey="BlackColor80" />
+                                        <StaticResource x:Key="ListViewItemForegroundSelected" ResourceKey="WhiteColor" />
+                                        <StaticResource x:Key="ListViewItemFocusVisualPrimaryBrush" ResourceKey="FocusStrokeColorOuterBrush" />
+                                        <StaticResource x:Key="ListViewItemFocusVisualSecondaryBrush" ResourceKey="FocusStrokeColorInnerBrush" />
+                                        <StaticResource x:Key="ListViewItemFocusBorderBrush" ResourceKey="FocusStrokeColorOuterBrush" />
+                                        <StaticResource x:Key="ListViewItemFocusSecondaryBorderBrush" ResourceKey="TextFillColorPrimaryBrush" />
+                                        <StaticResource x:Key="ListViewItemCheckBrush" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+                                        <StaticResource x:Key="ListViewItemCheckBoxBrush" ResourceKey="ControlAltFillColorSecondaryBrush" />
+                                        <StaticResource x:Key="ListViewItemDragBackground" ResourceKey="SubtleFillColorTransparentBrush" />
+                                        <StaticResource x:Key="ListViewItemDragForeground" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+                                        <StaticResource x:Key="ListViewItemPlaceholderBackground" ResourceKey="ControlStrongFillColorDisabledBrush" />
+
+                                        <Style
+                                            TargetType="ListViewItem"
+                                            BasedOn="{StaticResource DefaultListViewItemStyle}">
+
+                                            <Setter
+                                                Property="FontFamily"
+                                                Value="{StaticResource DMMonoRegular}"
+                                            />
+                                            
+                                        </Style>
+                                        
+                                    </ListView.Resources>
+                                    
+                                    <ListView.ItemContainerTransitions />
+                                </ListView>
+                            </Border>
+                        </Popup>
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

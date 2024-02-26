@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.ToggleSwitches">
+
+    <StaticResource x:Key="ToggleSwitchContentForeground" ResourceKey="WhiteColor70" />
+    <StaticResource x:Key="ToggleSwitchContentForegroundDisabled" ResourceKey="WhiteColor30" />
+    <StaticResource x:Key="ToggleSwitchHeaderForeground" ResourceKey="WhiteColor70" />
+    <StaticResource x:Key="ToggleSwitchHeaderForegroundDisabled" ResourceKey="WhiteColor30" />
+    <StaticResource x:Key="ToggleSwitchContainerBackground" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchContainerBackgroundPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchContainerBackgroundPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchContainerBackgroundDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchFillOff" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchFillOffPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchFillOffPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchFillOffDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleSwitchStrokeOff" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleSwitchStrokeOffPointerOver" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleSwitchStrokeOffPressed" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleSwitchStrokeOffDisabled" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="ToggleSwitchFillOn" ResourceKey="WhiteColor80" />
+    <StaticResource x:Key="ToggleSwitchFillOnPointerOver" ResourceKey="WhiteColor80" />
+    <StaticResource x:Key="ToggleSwitchFillOnPressed" ResourceKey="WhiteColor80" />
+    <StaticResource x:Key="ToggleSwitchFillOnDisabled" ResourceKey="WhiteColor40" />
+    <StaticResource x:Key="ToggleSwitchStrokeOn" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleSwitchStrokeOnPointerOver" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleSwitchStrokeOnPressed" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleSwitchStrokeOnDisabled" ResourceKey="WhiteColor50" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOff" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOffPointerOver" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOffPressed" ResourceKey="BlackColor70" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOffDisabled" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOn" ResourceKey="BlackColor70" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOnPointerOver" ResourceKey="BlackColor80" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOnPressed" ResourceKey="BlackColor90" />
+    <StaticResource x:Key="ToggleSwitchKnobFillOnDisabled" ResourceKey="BlackColor40" />
+    
+</ResourceDictionary>

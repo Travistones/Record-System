@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.TextBoxes">
+
+    <Thickness 
+        x:Key="TextControlBorderThemeThicknessFocused">
+        2.5
+    </Thickness>
+
+    <Thickness 
+        x:Key="TextControlBorderThemeThickness">
+        1
+    </Thickness>
+
+    <StaticResource x:Key="TextControlForeground" ResourceKey="BlackColor80" />
+    <StaticResource x:Key="TextControlForegroundPointerOver" ResourceKey="BlackColor90" />
+    <StaticResource x:Key="TextControlForegroundFocused" ResourceKey="BlackColor" />
+    <StaticResource x:Key="TextControlForegroundDisabled" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="TextControlBackground" ResourceKey="WhiteColor80" />
+    <StaticResource x:Key="TextControlBackgroundPointerOver" ResourceKey="WhiteColor90" />
+    <StaticResource x:Key="TextControlBackgroundFocused" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="TextControlBackgroundDisabled" ResourceKey="WhiteColor50" />
+    <StaticResource x:Key="TextControlBorderBrush" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="TextControlBorderBrushPointerOver" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="TextControlBorderBrushFocused" ResourceKey="BlackColor40" />
+    <StaticResource x:Key="TextControlBorderBrushDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="TextControlPlaceholderForeground" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="TextControlPlaceholderForegroundPointerOver" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="TextControlPlaceholderForegroundFocused" ResourceKey="BlackColor30" />
+    <StaticResource x:Key="TextControlPlaceholderForegroundDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="TextControlHeaderForeground" ResourceKey="BlackColor" />
+    <StaticResource x:Key="TextControlHeaderForegroundDisabled" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="TextControlSelectionHighlightColor" ResourceKey="BlackColor90" />
+    <StaticResource x:Key="TextControlButtonBackground" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="TextControlButtonBackgroundPointerOver" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="TextControlButtonBackgroundPressed" ResourceKey="BlackColor20" />
+    <StaticResource x:Key="TextControlButtonBorderBrush" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="TextControlButtonBorderBrushPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="TextControlButtonBorderBrushPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="TextControlButtonForeground" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="TextControlButtonForegroundPointerOver" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="TextControlButtonForegroundPressed" ResourceKey="BlackColor70" />
+
+</ResourceDictionary>

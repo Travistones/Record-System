@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <ActiveDebugProfile>Record System (Package)</ActiveDebugProfile>
+    <Source>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</Source>
+    <SmallTileSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</SmallTileSource>
+    <MediumTileSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</MediumTileSource>
+    <WideTileSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</WideTileSource>
+    <LargeTileSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</LargeTileSource>
+    <AppIconSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</AppIconSource>
+    <SplashScreenSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</PackageLogoSource>
+    <BadgeLogoSource>C:\Users\pette\OneDrive\Documents\Dev\Kokoto\Record System\Assets\KHC Logo Round.png</BadgeLogoSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="App.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <Page Update="ContentDialogs\Close\CloseContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Employees\ContentDialogs\PayEmployees\PayEmployeesContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Employees\ContentDialogs\ResetPasswordAndUserName\ResetPasswordAndUserNameContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Employees\ContentDialogs\RemoveUserConfirmation\RemoveUserConfirmationContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\CheckBox\PermissionCheckBoxTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Employees\ContentDialogs\GrantSystemPermission\GrantSystemPermissionContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\TeachingTip\ApplicationErrorTeachingTip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ComboBoxItem\FormsComboBoxItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ComboBoxItem\FormsComboBoxItemTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ComboBoxes\FormComboBoxTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ComboBoxes\FormComboBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\ChangePictureButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Account\ContentDialogs\Logout\ContentDialog\LogoutContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Account\ContentDialogs\ChangeCompanyLogoOrName\ContentDialog\ChangeCompanyLogoOrNameContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Account\ContentDialogs\ChangePricing\ContentDialog\ChangePricingContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Account\ContentDialogs\EditProfile\ContentDialog\EditProfileContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\PasswordBoxes\ApplicationPasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\HyperlinkButtons\LogoutHyperlinkButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\AccountPricingButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ToggleSwitches\AccountToggleSwitchTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\EditMyAccountButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Trucks\Page\TrucksSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Revenues\Page\RevenuesSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Pebbles\Page\PebblesSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Credits\Page\CreditsSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Expenses\Page\ExpensesSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Orders\Page\OrderSummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\FilterButtonsTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Summary\Pages\Overall\Page\OverallPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\SummaryAccountNavigationButtonsTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Container\SummaryAccountRoot\Page\SummaryAccountPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\FakeListButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\GridViewItem\EmployeesGridViewItemTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\WhiteForegroundTextButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\FlipViews\AddNewEmployeeFormFlipView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\CalendarDatePicker\ApplicationCalendarViewTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\CalendarDatePicker\ApplicationCalendarDatePickerTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\CalendarDatePicker\ApplicationCalendarDatePicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Orders\Page\OrdersPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\NumberBoxes\ReadOnlyFormsNumberBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ToolTips\ApplicationPrimaryNavigationItemsToolTip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ToggleButtons\AddDataFormToggleButtons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\ContentDialogs\ApplicationContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ContentDialogs\DeleteData\DeleteDataContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <None Update="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
+    <Page Update="Resources\Controls\Buttons\ClearFormButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\ClosePaneButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Container\Login\Page\LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Container\Initial\Page\InitialPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\NumberBoxes\FormsNumberBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\AutoSuggestBoxes\FormsAutoSuggestBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\TextBoxes\FormsTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\NumberBoxes\CellEditingNumberBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\TextBoxes\CellEditingTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\SplitViews\BottomPaneSplitView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\BlackBackgroundTextIconButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\TextBoxes\TextBoxesTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\TextBoxes\SearchTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\Buttons\TransparentBackgroundTextIconButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Account\Page\AccountPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Revenues\Page\RevenuesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Expenses\Page\ExpensesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Employees\Page\EmployeesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Credits\Page\CreditsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Container\Root\Page\RootPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Content\Dashboard\Page\DashboardPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Container\Main\Page\MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Colors\ApplicationColors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Fonts\ApplicationFonts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\NavigationViewItemPresenter\ApplicationNavigationViewItemPresenter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\NavigationViewItem\ApplicationNavigationViewItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Controls\NavigationView\ApplicationNavigationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

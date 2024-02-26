@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.ToolTips">
+    
+    <Style x:Key="AppliationPrimaryNavigationItemsToolTipStyle" TargetType="ToolTip">
+         <Setter
+                Property="Placement"
+                Value="Bottom"
+            />
+            
+        <Setter Property="Template">
+           
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <ContentPresenter 
+                        x:Name="LayoutRoot" 
+                        Background="{StaticResource AcrylicInAppFillColorDefaultBrush}" 
+                        BackgroundSizing="InnerBorderEdge" 
+                        BorderBrush="{StaticResource WhiteColor10}"  
+                        Content="{TemplateBinding Content}" 
+                        ContentTransitions="{TemplateBinding ContentTransitions}" 
+                        ContentTemplate="{TemplateBinding ContentTemplate}" 
+                        Padding="7" 
+                        TextWrapping="Wrap" 
+                        FontSize="11"
+                        FontFamily="{StaticResource DMMonoLight}"
+                        BorderThickness="1"
+                        Foreground="{StaticResource WhiteColor}"
+                        CornerRadius="1">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OpenStates">
+                                <VisualState x:Name="Closed">
+
+                                    <Storyboard>
+                                        <FadeOutThemeAnimation TargetName="LayoutRoot" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Opened">
+
+                                    <Storyboard>
+                                        <FadeInThemeAnimation TargetName="LayoutRoot" />
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+                    </ContentPresenter>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.Buttons">
+
+    <LinearGradientBrush 
+        x:Key="ControlElevationBorderBrush" 
+        MappingMode="Absolute" 
+        StartPoint="0,0" 
+        EndPoint="0,3">
+
+        <LinearGradientBrush.GradientStops>
+            
+            <GradientStop 
+                Offset="0.33" 
+                Color="{StaticResource BlackColor20}" 
+            />
+            
+            <GradientStop 
+                Offset="1.0" 
+                Color="{StaticResource BlackColor}" 
+            />
+
+        </LinearGradientBrush.GradientStops>
+        
+    </LinearGradientBrush>
+
+    <StaticResource 
+        x:Key="ButtonBackground" 
+        ResourceKey="BlackColor" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBackgroundPointerOver" 
+        ResourceKey="BlackColor90" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBackgroundPressed" 
+        ResourceKey="BlackColor80" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBackgroundDisabled" 
+        ResourceKey="BlackColor20" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonForeground" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonForegroundPointerOver" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonForegroundPressed" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonForegroundDisabled" 
+        ResourceKey="WhiteColor70" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBorderBrush" 
+        ResourceKey="ControlElevationBorderBrush" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBorderBrushPointerOver" 
+        ResourceKey="ControlElevationBorderBrush" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBorderBrushPressed" 
+        ResourceKey="ControlElevationBorderBrush" 
+    />
+
+    <StaticResource 
+        x:Key="ButtonBorderBrushDisabled" 
+        ResourceKey="BlackColor10" 
+    />
+
+</ResourceDictionary>

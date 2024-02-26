@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Fonts">
+
+    <!--#region ICON FONTS -->
+
+        <FontFamily
+            x:Key="SystemFluentIcons">
+
+            ms-appx:///Assets/Fonts/IconFonts/SystemFluentIcons.ttf#FluentSystemIcons-Resizable
+
+        </FontFamily>
+
+        <FontFamily
+            x:Key="SegoeFluentIcons">
+
+            ms-appx:///Assets/Fonts/IconFonts/SegoeFluentIcons.ttf#Segoe Fluent Icons
+
+        </FontFamily>
+    
+    <!--#endregion-->
+
+    <!--#region NORMAL FONTS -->
+    
+        <FontFamily
+            x:Key="DMMonoRegular">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/DM_Mono/DMMono-Regular.ttf#DM Mono
+        
+        </FontFamily>
+
+        <FontFamily
+            x:Key="DMMonoItalic">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/DM_Mono/DMMono-Italic.ttf#DM Mono
+        
+        </FontFamily>
+
+        <FontFamily
+            x:Key="DMMonoLight">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/DM_Mono/DMMono-Light.ttf#DM Mono
+        
+        </FontFamily>
+
+        <FontFamily
+            x:Key="DMMonoLightItalic">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/DM_Mono/DMMono-LightItalic.ttf#DM Mono
+        
+        </FontFamily>
+
+        <FontFamily
+            x:Key="DMMonoMedium">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/DM_Mono/DMMono-Medium.ttf#DM Mono
+        
+        </FontFamily>
+
+        <FontFamily
+            x:Key="DMMonoMediumItalic">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/DM_Mono/DMMono-MediumItalic.ttf#DM Mono
+        
+        </FontFamily>
+
+        <FontFamily
+            x:Key="AudioWide">
+        
+            ms-appx:///Assets/Fonts/NormalFonts/AudioWide/AudioWide-Regular.ttf#AudioWide
+        
+        </FontFamily>
+    
+    <!--#endregion-->
+
+</ResourceDictionary>

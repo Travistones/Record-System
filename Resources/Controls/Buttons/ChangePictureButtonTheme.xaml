@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.Buttons">
+
+    <StaticResource x:Key="ButtonBackground" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ButtonBackgroundPointerOver" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ButtonBackgroundPressed" ResourceKey="WhiteColor70" />
+    <StaticResource x:Key="ButtonBackgroundDisabled" ResourceKey="BlackColor70" />
+    <StaticResource x:Key="ButtonForeground" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ButtonForegroundPointerOver" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ButtonForegroundPressed" ResourceKey="BlackColor70" />
+    <StaticResource x:Key="ButtonForegroundDisabled" ResourceKey="WhiteColor70" />
+    <StaticResource x:Key="ButtonBorderBrush" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ButtonBorderBrushPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ButtonBorderBrushPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ButtonBorderBrushDisabled" ResourceKey="TransparentColor" />
+
+</ResourceDictionary>

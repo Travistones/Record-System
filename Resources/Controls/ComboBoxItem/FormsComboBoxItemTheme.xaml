@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.ComboBoxItem">
+
+    <StaticResource x:Key="ComboBoxItemForeground" ResourceKey="BlackColor70" />
+    <StaticResource x:Key="ComboBoxItemForegroundPressed" ResourceKey="BlackColor90" />
+    <StaticResource x:Key="ComboBoxItemForegroundPointerOver" ResourceKey="BlackColor80" />
+    <StaticResource x:Key="ComboBoxItemForegroundDisabled" ResourceKey="BlackColor40" />
+    <StaticResource x:Key="ComboBoxItemForegroundSelected" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxItemForegroundSelectedUnfocused" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxItemForegroundSelectedPressed" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxItemForegroundSelectedPointerOver" ResourceKey="BlackColor" />
+    <StaticResource x:Key="ComboBoxItemForegroundSelectedDisabled" ResourceKey="BlackColor40" />
+    <StaticResource x:Key="ComboBoxItemBackground" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBackgroundPressed" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxItemBackgroundPointerOver" ResourceKey="BlackColor5" />
+    <StaticResource x:Key="ComboBoxItemBackgroundDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBackgroundSelected" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxItemBackgroundSelectedUnfocused" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxItemBackgroundSelectedPressed" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxItemBackgroundSelectedPointerOver" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ComboBoxItemBackgroundSelectedDisabled" ResourceKey="BlackColor5" />
+    <StaticResource x:Key="ComboBoxItemBorderBrush" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushSelected" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushSelectedUnfocused" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushSelectedPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushSelectedPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ComboBoxItemBorderBrushSelectedDisabled" ResourceKey="TransparentColor" />
+
+</ResourceDictionary>

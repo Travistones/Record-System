@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.CalendarDatePicker">
+
+    <StaticResource 
+        x:Key="CalendarViewFocusBorderBrush" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewSelectedHoverBorderBrush" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewSelectedPressedBorderBrush" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewSelectedBorderBrush" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewHoverBorderBrush" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewPressedBorderBrush" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodayForeground" 
+        ResourceKey="BlackColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodayPressedForeground" 
+        ResourceKey="BlackColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodayHoverForeground" 
+        ResourceKey="BlackColor90" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodayBackground" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodayHoverBackground" 
+        ResourceKey="WhiteColor90" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodayPressedBackground" 
+        ResourceKey="WhiteColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodaySelectedBorderBrush" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodaySelectedHoverBorderBrush" 
+        ResourceKey="WhiteColor90" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewTodaySelectedPressedBorderBrush" 
+        ResourceKey="WhiteColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewBlackoutForeground" 
+        ResourceKey="WhiteColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewSelectedForeground" 
+        ResourceKey="WhiteColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewSelectedHoverForeground" 
+        ResourceKey="WhiteColor90" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewSelectedPressedForeground" 
+        ResourceKey="WhiteColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewPressedForeground" 
+        ResourceKey="WhiteColor80" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewOutOfScopeForeground" 
+        ResourceKey="WhiteColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewCalendarItemForeground" 
+        ResourceKey="WhiteColor70" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewOutOfScopeBackground" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewCalendarItemBackground" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewForeground" 
+        ResourceKey="WhiteColor70" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewBackground" 
+        ResourceKey="WhiteColor5" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewBorderBrush" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewWeekDayForegroundDisabled" 
+        ResourceKey="WhiteColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewNavigationButtonBackground" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewNavigationButtonForegroundPointerOver" 
+        ResourceKey="WhiteColor60" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewNavigationButtonForegroundPressed" 
+        ResourceKey="WhiteColor50" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewNavigationButtonForegroundDisabled" 
+        ResourceKey="WhiteColor40" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewCalendarItemRevealBackground" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewCalendarItemRevealBorderBrush" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewNavigationButtonBorderBrushPointerOver" 
+        ResourceKey="TransparentColor" 
+    />
+
+    <StaticResource 
+        x:Key="CalendarViewNavigationButtonBorderBrush" 
+        ResourceKey="TransparentColor" 
+    />
+
+</ResourceDictionary>

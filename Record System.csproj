@@ -1,0 +1,532 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>Record_System</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxPackageDir>C:\Users\pette\OneDrive\Documents\Dev\Release Modes\Kokoto\</AppxPackageDir>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Never</AppxBundle>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <PackageCertificateKeyFile>Record System_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Assets\BadgeLogo.scale-100.png" />
+    <Content Remove="Assets\BadgeLogo.scale-125.png" />
+    <Content Remove="Assets\BadgeLogo.scale-150.png" />
+    <Content Remove="Assets\BadgeLogo.scale-200.png" />
+    <Content Remove="Assets\BadgeLogo.scale-400.png" />
+    <Content Remove="Assets\KHC Logo (Custom).png" />
+    <Content Remove="Assets\KHC Logo Round.png" />
+    <Content Remove="Assets\KHC Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ContentDialogs\Close\CloseContentDialog.xaml" />
+    <None Remove="ContentDialogs\DeleteData\DeleteDataContentDialog.xaml" />
+    <None Remove="Pages\Container\Initial\Page\InitialPage.xaml" />
+    <None Remove="Pages\Container\Login\Page\LoginPage.xaml" />
+    <None Remove="Pages\Container\Main\Page\MainPage.xaml" />
+    <None Remove="Pages\Container\SummaryAccountRoot\Page\SummaryAccountPage.xaml" />
+    <None Remove="Pages\Content\Account\ContentDialogs\ChangeCompanyLogoOrName\ContentDialog\ChangeCompanyLogoOrNameContentDialog.xaml" />
+    <None Remove="Pages\Content\Account\ContentDialogs\ChangePricing\ContentDialog\ChangePricingContentDialog.xaml" />
+    <None Remove="Pages\Content\Account\ContentDialogs\EditProfile\ContentDialog\EditProfileContentDialog.xaml" />
+    <None Remove="Pages\Content\Account\ContentDialogs\Logout\ContentDialog\LogoutContentDialog.xaml" />
+    <None Remove="Pages\Content\Account\ContentDialogs\PasswordConfirmation\PasswordConfirmationContentDialog.xaml" />
+    <None Remove="Pages\Content\Account\Page\AccountPage.xaml" />
+    <None Remove="Pages\Content\Credits\Page\CreditsPage.xaml" />
+    <None Remove="Pages\Content\Dashboard\Page\DashboardPage.xaml" />
+    <None Remove="Pages\Content\Employees\ContentDialogs\ChangePictureContentDialog.xaml" />
+    <None Remove="Pages\Content\Employees\ContentDialogs\GrantSystemPermission\GrantSystemPermissionContentDialog.xaml" />
+    <None Remove="Pages\Content\Employees\ContentDialogs\PayEmployees\PayEmployeesContentDialog.xaml" />
+    <None Remove="Pages\Content\Employees\ContentDialogs\RemoveUserConfirmation\RemoveUserConfirmationContentDialog.xaml" />
+    <None Remove="Pages\Content\Employees\ContentDialogs\ResetPasswordAndUserName\ResetPasswordAndUserNameContentDialog.xaml" />
+    <None Remove="Pages\Content\Employees\Page\EmployeesPage.xaml" />
+    <None Remove="Pages\Content\Expenses\Page\ExpensesPage.xaml" />
+    <None Remove="Pages\Content\Orders\Page\OrdersPage.xaml" />
+    <None Remove="Pages\Content\Revenues\Page\RevenuesPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Credits\Page\CreditsSummaryPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Expenses\Page\ExpensesSummaryPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Orders\Page\OrderSummaryPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Overall\Page\OverallPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Pebbles\Page\PebblesSummaryPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Revenues\Page\RevenuesSummaryPage.xaml" />
+    <None Remove="Pages\Content\Summary\Pages\Trucks\Page\TrucksSummaryPage.xaml" />
+    <None Remove="Resources\Colors\ApplicationColors.xaml" />
+    <None Remove="Resources\Controls\AutoSuggestBoxes\FormsAutoSuggestBox.xaml" />
+    <None Remove="Resources\Controls\Buttons\AccountPricingButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\BlackBackgroundTextIconButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\ChangePictureButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\ClearFormButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\ClosePaneButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\EditMyAccountButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\FakeListButton.xaml" />
+    <None Remove="Resources\Controls\Buttons\FilterButtonsTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\SummaryAccountNavigationButtonsTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\TransparentBackgroundTextIconButtonTheme.xaml" />
+    <None Remove="Resources\Controls\Buttons\WhiteForegroundTextButton.xaml" />
+    <None Remove="Resources\Controls\CalendarDatePicker\ApplicationCalendarDatePicker.xaml" />
+    <None Remove="Resources\Controls\CalendarDatePicker\ApplicationCalendarDatePickerTheme.xaml" />
+    <None Remove="Resources\Controls\CalendarDatePicker\ApplicationCalendarViewTheme.xaml" />
+    <None Remove="Resources\Controls\CheckBox\PermissionCheckBoxTheme.xaml" />
+    <None Remove="Resources\Controls\ComboBoxes\FormComboBox.xaml" />
+    <None Remove="Resources\Controls\ComboBoxes\FormComboBoxTheme.xaml" />
+    <None Remove="Resources\Controls\ComboBoxItem\FormsComboBoxItem.xaml" />
+    <None Remove="Resources\Controls\ComboBoxItem\FormsComboBoxItemTheme.xaml" />
+    <None Remove="Resources\Controls\ContentDialogs\ApplicationContentDialog.xaml" />
+    <None Remove="Resources\Controls\FlipViews\AddNewEmployeeFormFlipView.xaml" />
+    <None Remove="Resources\Controls\GridViewItem\EmployeesGridViewItemTheme.xaml" />
+    <None Remove="Resources\Controls\HyperlinkButtons\LogoutHyperlinkButtonTheme.xaml" />
+    <None Remove="Resources\Controls\NavigationViewItemPresenter\ApplicationNavigationViewItemPresenter.xaml" />
+    <None Remove="Resources\Controls\NavigationViewItem\ApplicationNavigationViewItem.xaml" />
+    <None Remove="Resources\Controls\NavigationView\ApplicationNavigationView.xaml" />
+    <None Remove="Resources\Controls\NumberBoxes\CellEditingNumberBox.xaml" />
+    <None Remove="Resources\Controls\NumberBoxes\FormsNumberBox.xaml" />
+    <None Remove="Resources\Controls\NumberBoxes\ReadOnlyFormsNumberBox.xaml" />
+    <None Remove="Resources\Controls\PasswordBoxes\ApplicationPasswordBox.xaml" />
+    <None Remove="Resources\Controls\SplitViews\BottomPaneSplitView.xaml" />
+    <None Remove="Resources\Controls\TeachingTip\ApplicationErrorTeachingTip.xaml" />
+    <None Remove="Resources\Controls\TextBoxes\CellEditingTextBox.xaml" />
+    <None Remove="Resources\Controls\TextBoxes\FormsTextBox.xaml" />
+    <None Remove="Resources\Controls\TextBoxes\SearchTextBox.xaml" />
+    <None Remove="Resources\Controls\TextBoxes\TextBoxesTheme.xaml" />
+    <None Remove="Resources\Controls\ToggleButtons\AddDataFormToggleButtons.xaml" />
+    <None Remove="Resources\Controls\ToggleSwitches\AccountToggleSwitch.xaml" />
+    <None Remove="Resources\Controls\ToggleSwitches\AccountToggleSwitchTheme.xaml" />
+    <None Remove="Resources\Controls\ToolTips\ApplicationPrimaryNavigationItemsToolTip.xaml" />
+    <None Remove="Resources\Fonts\ApplicationFonts.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI" Version="7.1.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Primitives" Version="7.1.2" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="Google.Cloud.Firestore" Version="3.4.0" />
+    <PackageReference Include="H.OxyPlot.WinUI" Version="0.9.30" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.3.230602002" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!-- 
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\NavigationView\ApplicationNavigationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\NavigationViewItem\ApplicationNavigationViewItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\NavigationViewItemPresenter\ApplicationNavigationViewItemPresenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Fonts\ApplicationFonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Colors\ApplicationColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicationWindows\Main\Window\" />
+    <Folder Include="Pages\Content\Account\ContentDialogs\PasswordConfirmation\ContentDialog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ContentDialogs\Close\CloseContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Employees\ContentDialogs\PayEmployees\PayEmployeesContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Employees\ContentDialogs\ResetPasswordAndUserName\ResetPasswordAndUserNameContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Employees\ContentDialogs\RemoveUserConfirmation\RemoveUserConfirmationContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\CheckBox\PermissionCheckBoxTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Employees\ContentDialogs\GrantSystemPermission\GrantSystemPermissionContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\TeachingTip\ApplicationErrorTeachingTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ComboBoxItem\FormsComboBoxItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ComboBoxItem\FormsComboBoxItemTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ComboBoxes\FormComboBoxTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ComboBoxes\FormComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\ChangePictureButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Account\ContentDialogs\Logout\ContentDialog\LogoutContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Account\ContentDialogs\ChangeCompanyLogoOrName\ContentDialog\ChangeCompanyLogoOrNameContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Account\ContentDialogs\ChangePricing\ContentDialog\ChangePricingContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Account\ContentDialogs\EditProfile\ContentDialog\EditProfileContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\PasswordBoxes\ApplicationPasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Account\ContentDialogs\PasswordConfirmation\PasswordConfirmationContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\HyperlinkButtons\LogoutHyperlinkButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\AccountPricingButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ToggleSwitches\AccountToggleSwitchTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ToogleSwitches\AccountToggleSwitch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\EditMyAccountButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Trucks\Page\TrucksSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Revenues\Page\RevenuesSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Pebbles\Page\PebblesSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Credits\Page\CreditsSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Expenses\Page\ExpensesSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Orders\Page\OrderSummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\FilterButtonsTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Pages\Overall\Page\OverallPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\SummaryAccountNavigationButtonsTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Container\SummaryAccountRoot\Page\SummaryAccountPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\FakeListButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Employees\ContentDialogs\ChangePictureContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\GridViewItem\EmployeesGridViewItemTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\WhiteForegroundTextButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\FlipViews\AddNewEmployeeFormFlipView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\CalendarDatePicker\ApplicationCalendarViewTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\CalendarDatePicker\ApplicationCalendarDatePickerTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\CalendarDatePicker\ApplicationCalendarDatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Orders\Page\OrdersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\NumberBoxes\ReadOnlyFormsNumberBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ToolTips\ApplicationPrimaryNavigationItemsToolTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ToggleButtons\AddDataFormToggleButtons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\ContentDialogs\ApplicationContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ContentDialogs\DeleteData\DeleteDataContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\ClearFormButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\ClosePaneButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Container\Login\Page\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Container\Initial\Page\InitialPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\NumberBoxes\FormsNumberBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\AutoSuggestBoxes\FormsAutoSuggestBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\TextBoxes\FormsTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\NumberBoxes\CellEditingNumberBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\TextBoxes\CellEditingTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\SplitViews\BottomPaneSplitView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\BlackBackgroundTextIconButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\TextBoxes\TextBoxesTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\TextBoxes\SearchTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\DataGrid\ApplicationDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Resources\Controls\Buttons\TransparentBackgroundTextIconButtonTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Account\Page\AccountPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Summary\Page\SummaryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Revenues\Page\RevenuesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Expenses\Page\ExpensesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Employees\Page\EmployeesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Credits\Page\CreditsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Container\Root\Page\RootPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Content\Dashboard\Page\DashboardPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\Container\Main\Page\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <!-- 
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Colors">
+
+    <!--#region  Gray Colors -->
+
+        <!--region Gray 1 -->
+
+            <Color
+	            x:Key="Gray1Color">
+
+	            #FF4F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color90">
+
+	            #E64F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color80">
+
+	            #CC4F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color70">
+
+	            #B34F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color60">
+
+	            #994F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color50">
+
+	            #804F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color40">
+
+	            #664F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color30">
+
+	            #4D4F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color20">
+
+	            #334F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color10">
+
+	            #1A4F4C48
+
+            </Color>
+
+            <Color
+	            x:Key="Gray1Color5">
+
+	            #0D4F4C48
+
+            </Color>
+
+        <!--#endregion -->
+
+        <!--region Gray 2 -->
+    
+            <Color
+	            x:Key="Gray2Color">
+
+	            #FF696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color90">
+
+	            #E6696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color80">
+
+	            #CC696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color70">
+
+	            #B3696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color60">
+
+	            #99696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color50">
+
+	            #80696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color40">
+
+	            #66696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color30">
+
+	            #4D696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color20">
+
+	            #33696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color10">
+
+	            #1A696660
+
+            </Color>
+
+            <Color
+	            x:Key="Gray2Color5">
+
+	            #0D696660
+
+            </Color>
+
+
+        <!--#endregion -->
+
+        <!--region Gray 3 -->
+    
+            <Color
+	            x:Key="Gray3Color">
+
+	            #FF837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color90">
+
+	            #E6837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color80">
+
+	            #CC837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color70">
+
+	            #B3837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color60">
+
+	            #99837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color50">
+
+	            #80837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color40">
+
+	            #66837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color30">
+
+	            #4D837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color20">
+
+	            #33837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color10">
+
+	            #1A837E77
+
+            </Color>
+
+            <Color
+	            x:Key="Gray3Color5">
+
+	            #0D837E77
+
+            </Color>
+
+        <!--#endregion -->
+
+        <!--region Gray 4 -->
+    
+            <Color
+	            x:Key="Gray4Color">
+
+	            #FFB6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color90">
+
+	            #E6B6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color80">
+
+	            #CCB6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color70">
+
+	            #B3B6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color60">
+
+	            #99B6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color50">
+
+	            #80B6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color40">
+
+	            #66B6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color30">
+
+	            #4DB6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color20">
+
+	            #33B6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color10">
+
+	            #1AB6B0A6
+
+            </Color>
+
+            <Color
+	            x:Key="Gray4Color5">
+
+	            #0DB6B0A6
+
+            </Color>
+
+        <!--#endregion -->
+
+    <!--#endregion -->
+
+    <!--#region Black Color-->
+    
+        <Color
+	        x:Key="BlackColor">
+
+	        #FF000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor90">
+
+	        #E6000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor80">
+
+	        #CC000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor70">
+
+	        #B3000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor60">
+
+	        #99000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor50">
+
+	        #80000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor40">
+
+	        #66000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor30">
+
+	        #4D000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor20">
+
+	        #33000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor10">
+
+	        #1A000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor5">
+
+	        #0D000000
+
+        </Color>
+
+        <Color
+	        x:Key="BlackColor1">
+
+	        #03000000
+
+        </Color>
+
+    <!--#endregion-->
+
+    <!--#region White Colors -->
+
+        <Color
+	        x:Key="WhiteColor">
+
+	        #FFFFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor90">
+
+	        #E6FFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor80">
+
+	        #CCFFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor70">
+
+	        #B3FFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor60">
+
+	        #99FFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor50">
+
+	        #80FFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor40">
+
+	        #66FFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor30">
+
+	        #4DFFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor20">
+
+	        #33FFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor10">
+
+	        #1AFFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor5">
+
+	        #0DFFFFFF
+
+        </Color>
+
+        <Color
+	        x:Key="WhiteColor1">
+
+	        #03FFFFFF
+
+        </Color>
+
+    <!--#endregion-->
+ 
+    <!--#region Transparent Color -->
+
+        <Color
+            x:Key="TransparentColor">
+
+            #00FFFFFF
+
+        </Color>
+    
+    <!--#endregion-->
+
+    <!--#region TitleBar Colors -->
+
+        <Color
+            x:Key="TitleBarButtonsForegroundColor">
+
+            #FF252525
+
+        </Color>
+    
+        <Color
+            x:Key="TitleBarButtonsInActiveForegroundColor">
+
+            #FF101010
+
+        </Color>
+    
+    <!--#endregion-->
+      
+    <LinearGradientBrush
+        StartPoint="0, 0"
+        x:Key="AddDataFormTopBorderBackgroundBrush"
+        EndPoint="0, 1">
+
+        <GradientStop 
+            Offset="0.6" 
+            Color="{StaticResource WhiteColor}" 
+        />
+                            
+        <GradientStop 
+            Offset="1" 
+            Color="{StaticResource TransparentColor}" 
+        />
+
+    </LinearGradientBrush>
+        
+    <LinearGradientBrush
+        x:Key="AddDataFormBottomBoderBackgroundBrush"
+        StartPoint="0, 0"
+        EndPoint="0, 1">
+
+        <GradientStop 
+            Offset="0" 
+            Color="{StaticResource TransparentColor}" 
+        />
+                            
+        <GradientStop 
+            Offset="0.3" 
+            Color="{StaticResource WhiteColor}" 
+        />
+
+    </LinearGradientBrush>
+
+    <Color
+        x:Key="LogoutForegroundColor">
+
+        #80FF0000
+
+    </Color>
+
+    <Color
+        x:Key="LogoutForegroundColorPointerOver">
+
+        #B3FF0000
+
+    </Color>
+
+    <Color
+        x:Key="LogoutForegroundColorPressed">
+
+        #E6FF0000
+
+    </Color>
+
+    <Color
+        x:Key="LogoutForegroundColorDisabled">
+
+        #33FF0000
+
+    </Color>
+
+    <Color
+        x:Key="OfflineStatusColor">
+
+        #861B2D
+        
+    </Color>
+
+    <Color
+        x:Key="OnlineStatusColor">
+
+        #008200
+
+    </Color>
+
+    <Color
+        x:Key="OngoingTasksForegroundColor">
+
+        #724B00
+
+    </Color>
+
+</ResourceDictionary>

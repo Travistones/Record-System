@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.ToggleButtons">
+    
+    <StaticResource x:Key="ToggleButtonBackground" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBackgroundPointerOver" ResourceKey="BlackColor5" />
+    <StaticResource x:Key="ToggleButtonBackgroundPressed" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ToggleButtonBackgroundDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBackgroundChecked" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBackgroundCheckedPressed" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBackgroundCheckedDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBackgroundIndeterminate" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBackgroundIndeterminatePointerOver" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBackgroundIndeterminatePressed" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBackgroundIndeterminateDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonForeground" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="ToggleButtonForegroundPointerOver" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="ToggleButtonForegroundPressed" ResourceKey="BlackColor60" />
+    <StaticResource x:Key="ToggleButtonForegroundDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ToggleButtonForegroundChecked" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleButtonForegroundCheckedPointerOver" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleButtonForegroundCheckedPressed" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleButtonForegroundCheckedDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ToggleButtonForegroundIndeterminate" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleButtonForegroundIndeterminatePointerOver" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleButtonForegroundIndeterminatePressed" ResourceKey="WhiteColor" />
+    <StaticResource x:Key="ToggleButtonForegroundIndeterminateDisabled" ResourceKey="BlackColor10" />
+    <StaticResource x:Key="ToggleButtonBorderBrush" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBorderBrushPointerOver" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBorderBrushPressed" ResourceKey="BlackColor50" />
+    <StaticResource x:Key="ToggleButtonBorderBrushDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushChecked" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushCheckedPointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushCheckedPressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushCheckedDisabled" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushIndeterminate" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushIndeterminatePointerOver" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushIndeterminatePressed" ResourceKey="TransparentColor" />
+    <StaticResource x:Key="ToggleButtonBorderBrushIndeterminateDisabled" ResourceKey="TransparentColor" />
+    
+</ResourceDictionary>

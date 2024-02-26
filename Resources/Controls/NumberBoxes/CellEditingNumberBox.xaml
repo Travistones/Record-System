@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.NumberBoxes">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary
+            Source="ms-appx:///Resources/Controls/TextBoxes/CellEditingTextBox.xaml"
+        />
+        
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style 
+        TargetType="NumberBox"
+        x:Key="CellEditingNumberBoxStyle">
+        <Setter Property="AcceptsExpression" Value="True" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Padding" Value="{ThemeResource TextControlThemePadding}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="NumberBox">
+                    <Grid>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+
+                        <TextBox x:Name="InputBox" Style="{StaticResource CellEditingTextBoxStyle}" InputScope="{TemplateBinding InputScope}" PreventKeyboardDisplayOnProgrammaticFocus="{TemplateBinding PreventKeyboardDisplayOnProgrammaticFocus}" />
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

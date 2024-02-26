@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Record_System.Resources.Controls.NumberBoxes">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary
+            Source="ms-appx:///Resources/Controls/TextBoxes/FormsTextBox.xaml"
+        />
+
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="NumberBox"
+           x:Key="ReadOnlyFormsNumberBoxStyle">
+        <Setter Property="AcceptsExpression" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="NumberBox">
+                    <Grid Height="{TemplateBinding Height}">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+
+                        <TextBox x:Name="InputBox" Header="{TemplateBinding Header}" Style="{StaticResource FormsTextBoxStyle}" IsReadOnly="True" PlaceholderText="{TemplateBinding PlaceholderText}"/>
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
